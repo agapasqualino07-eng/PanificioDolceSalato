@@ -111,7 +111,7 @@ h3{font-size:1.35rem}
 
 /* ---------- storia / valori ---------- */
 .about{display:grid;gap:36px}
-.about__img{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;background:var(--brown-800)}
+.about__img{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;max-width:460px;background:var(--brown-800)}
 .about__img img{width:100%;height:100%;object-fit:cover}
 .stamp{position:absolute;right:14px;bottom:14px;background:var(--black);border:1px solid var(--gold);color:var(--gold);padding:.6em 1em;border-radius:12px;font-family:var(--font-display);font-style:italic}
 .values{display:grid;gap:14px;margin-top:28px}
@@ -273,3 +273,15 @@ h3{font-size:1.35rem}
 .no-js .panel[hidden]{display:block}
 .no-js .panel{margin-bottom:40px}
 .no-js .panel::before{content:attr(data-title);display:block;font:700 1.6rem var(--font-display);color:var(--gold);margin-bottom:10px}
+
+/* galleria */
+.gallery{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gallery::-webkit-scrollbar{display:none}
+.shot{flex:0 0 68vw;max-width:300px;aspect-ratio:4/5;scroll-snap-align:center;border-radius:var(--radius);overflow:hidden;background:var(--brown-800);border:1px solid rgba(243,230,207,.08)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.shot:hover img{transform:scale(1.06)}
+@media (min-width:980px){
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;overflow:visible;width:min(1120px,100% - 40px);margin-inline:auto;padding:0}
+  .shot{max-width:none;flex:none}
+  .shot:nth-child(5n+1){grid-row:span 1}
+}
