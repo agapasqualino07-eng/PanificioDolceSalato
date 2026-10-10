@@ -4,9 +4,8 @@
 
   // ===== DATI DA CONFERMARE CON IL TITOLARE =====
   var WA_NUMBER = '393515571151'; // 351 5571151 (numero del volantino) — verificare che sia attivo su WhatsApp
-  // Orari: compilare per attivare il badge "Aperto/Chiuso ora" nell'hero. 0 = domenica … 6 = sabato.
-  // Esempio: { 1: [['07:00','13:30'],['16:00','20:30']], 0: [] }
-  var HOURS = null;
+  // Orari (0 = domenica … 6 = sabato) per il badge "Aperto/Chiuso ora" e per evidenziare il giorno di oggi. Più fasce: [['07:00','13:00'],['16:00','20:00']]
+  var HOURS = { 0: [['06:30', '13:30']], 1: [['06:30', '21:30']], 2: [['06:30', '21:30']], 3: [['06:30', '21:30']], 4: [['06:30', '21:30']], 5: [['06:30', '21:30']], 6: [['06:30', '21:30']] };
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -151,6 +150,7 @@
     var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
     var toM = function (t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; };
     var open = (HOURS[day] || []).some(function (r) { return mins >= toM(r[0]) && mins < toM(r[1]); });
+    var tr = $('.hours tr[data-day="' + day + '"]'); if (tr) tr.classList.add('today');
     var b = $('#open-badge');
     if (b) { b.hidden = false; $('.dot', b).classList.toggle('on', open); $('span:last-child', b).textContent = open ? 'Aperto ora' : 'Chiuso ora'; }
   }
