@@ -29,7 +29,7 @@
  <div class="wrap">
   <a class="brand" href="../" aria-label="Dolce e Salato, torna in alto"><b>DOLCE<i>&amp;</i>SALATO</b><small>Panificio · Pasticceria</small></a>
   <nav class="nav" aria-label="Principale">
-   <a href="../#storia">Chi siamo</a><a href="../#cosa">Cosa facciamo</a><a href="../#galleria">Galleria</a><a href="../#menu">Menu e prezzi</a><a href="../#eventi">Eventi</a><a href="../#volantino">Volantino</a><a href="../#dove">Dove siamo</a>
+   <a href="../#menu">Menu e ordini</a><a href="../#eventi">Feste</a><a href="../#galleria">Vetrina</a><a href="../#volantino">Volantino</a><a href="../#storia">Chi siamo</a><a href="../#dove">Dove siamo</a>
   </nav>
   <a class="btn btn--gold nav" style="min-height:44px;padding:.6em 1.2em" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> 351 5571151</a>
   <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
@@ -38,7 +38,7 @@
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
  <div class="drawer__top"><span class="brand"><b>DOLCE<i>&amp;</i>SALATO</b><small>Panificio · Pasticceria</small></span><button class="burger" data-close aria-label="Chiudi il menu" style="font-size:1.2rem">✕</button></div>
  <nav aria-label="Menu mobile">
-  <a href="../#storia" data-close>Chi siamo</a><a href="../#cosa" data-close>Cosa facciamo</a><a href="../#galleria" data-close>Galleria</a><a href="../#menu" data-close>Menu e prezzi</a><a href="../#eventi" data-close>Eventi</a><a href="../#volantino" data-close>Volantino</a><a href="../#ordina" data-close>Ordina</a><a href="../#dove" data-close>Dove siamo</a>
+  <a href="../#menu" data-close>Menu e ordini</a><a href="../#eventi" data-close>Feste</a><a href="../#galleria" data-close>Vetrina</a><a href="../#volantino" data-close>Volantino</a><a href="../#storia" data-close>Chi siamo</a><a href="../#dove" data-close>Dove siamo</a>
  </nav>
  <div class="drawer__cta">
   <a class="btn btn--wa" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Scrivici su WhatsApp</a>
@@ -62,8 +62,8 @@
    <ol class="steps"><li><span><b>Calcola</b> i chili per i tuoi ospiti.</span></li><li><span><b>Scrivici</b> su WhatsApp: il messaggio è già pronto.</span></li><li><span><b>Ritira</b> il giorno della festa, concordando l'orario con noi.</span></li></ol>
   </div>
   <form class="calc rv" onsubmit="return false" aria-labelledby="calc-t">
-   <h3 id="calc-t">Calcolatore per la tua festa</h3>
-   <label for="kind">Che evento è?</label>
+   <h3 id="calc-t">Quanti chili ti servono?</h3>
+   <label for="kind">Che festa è?</label>
    <select id="kind"><option value="bimbi">Compleanno / festa bimbi</option><option value="aperitivo" selected>Aperitivo</option><option value="buffet">Buffet / cena in piedi</option><option value="laurea">Laurea / festa con dolci</option></select>
    <label for="ppl">Quante persone? <output id="ppl-out" for="ppl">30 persone</output></label>
    <input type="range" id="ppl" min="10" max="200" step="5" value="30">
@@ -73,8 +73,8 @@
     <small>di rusticheria + pasticceria mignon</small>
     <p style="margin-top:12px">Stima: <b id="est" style="color:var(--gold)">–</b></p>
    </div>
-   <a class="btn btn--wa btn--block" id="calc-wa" style="width:100%" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Chiedi il preventivo</a>
-   <p class="meta">Stima indicativa basata sui prezzi al kg del listino (rustici € 12–18, mignon € 14). Il preventivo definitivo lo concordiamo con te.</p>
+   <a class="btn btn--wa btn--block" id="calc-wa" style="width:100%" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Manda la richiesta a Dolce&amp;Salato</a>
+   <p class="meta">Stima basata sui prezzi al kg del listino (rustici € 12–18, mignon € 14). Il preventivo definitivo lo concordiamo con te.</p>
   </form>
  </div>
 </section>
@@ -82,20 +82,16 @@
 <section class="section">
  <div class="wrap">
   <div class="head"><h2>Listino rusticheria mignon</h2><p class="lead">Prezzi al kg.</p></div>
-  <ul class="menu-list cols"><li class="item"><h3>Focacce a mini porzioni, vari tipi</h3><span class="price">€ da 12,00<small>al kg</small></span></li>
-<li class="item"><h3>Rustici classici, vari tipi</h3><span class="price">€ 12,00<small>al kg</small></span></li>
-<li class="item"><h3>Arancinetti burro o ragù</h3><span class="price">€ 14,00<small>al kg</small></span></li>
-<li class="item"><h3>Arancinetti al pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini cornetti salati con crudo, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini cornetti salati con salmone, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li></ul>
+  <ul class="menu-list cols"><li class="item" data-id="rk-focacce-a-mini-porzioni-vari-tipi" data-name="Focacce a mini porzioni, vari tipi" data-price="12.00" data-unit="kg" data-from="1"><h3>Focacce a mini porzioni, vari tipi</h3><span class="price">€ da 12,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-rustici-classici-vari-tipi" data-name="Rustici classici, vari tipi" data-price="12.00" data-unit="kg" data-from="0"><h3>Rustici classici, vari tipi</h3><span class="price">€ 12,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-arancinetti-burro-o-rag" data-name="Arancinetti burro o ragù" data-price="14.00" data-unit="kg" data-from="0"><h3>Arancinetti burro o ragù</h3><span class="price">€ 14,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-arancinetti-al-pistacchio" data-name="Arancinetti al pistacchio" data-price="18.00" data-unit="kg" data-from="0"><h3>Arancinetti al pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-cornetti-salati-con-crudo-philadelphia-e-rucola" data-name="Mini cornetti salati con crudo, philadelphia e rucola" data-price="16.00" data-unit="kg" data-from="0"><h3>Mini cornetti salati con crudo, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-cornetti-salati-con-salmone-philadelphia-e-rucola" data-name="Mini cornetti salati con salmone, philadelphia e rucola" data-price="16.00" data-unit="kg" data-from="0"><h3>Mini cornetti salati con salmone, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-mafaldine-con-pesto-di-pistacchio-mortadella-e-polvere-di-pistacchio" data-name="Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio" data-price="18.00" data-unit="kg" data-from="0"><h3>Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li></ul>
   <div class="note"><b>Anche mignon, chiedi il prezzo al kg:</b><ul style="margin-top:8px;color:var(--cream-dim)"><li>Mini hot dog (wurstel, patatine, tomato e maionese)</li><li>Pizza secca, vari tipi</li><li>Mini hamburger (polpettine di carne, maionese, insalata e pomodoro a fette)</li><li>Rustici di sfoglia, vari tipi</li><li>Mini burger con cotoletta e patatine</li></ul></div>
   <h2 style="margin-top:1.4em">Pasticceria, torte e semifreddi</h2>
-  <ul class="menu-list cols">
-   <li class="item"><h3>Pasticceria mignon di nostra produzione</h3><span class="price">€ 14,00<small>al kg</small></span></li>
-   <li class="item"><h3>Torte classiche</h3><span class="price">€ 15,00<small>a partire da · al kg</small></span></li>
-   <li class="item"><h3>Semifreddi</h3><span class="price">€ 17,00<small>a partire da · al kg</small></span></li>
-  </ul>
+  <ul class="menu-list cols"><li class="item" data-id="ps-pasticceria-mignon-di-nostra-produzione" data-name="Pasticceria mignon di nostra produzione" data-price="14.00" data-unit="kg" data-from="0"><h3>Pasticceria mignon di nostra produzione</h3><span class="price">€ 14,00<small>al kg</small></span></li><li class="item" data-id="ps-torte-classiche" data-name="Torte classiche" data-price="15.00" data-unit="kg" data-from="1"><h3>Torte classiche</h3><span class="price">€ 15,00<small>a partire da · al kg</small></span></li><li class="item" data-id="ps-semifreddi" data-name="Semifreddi" data-price="17.00" data-unit="kg" data-from="1"><h3>Semifreddi</h3><span class="price">€ 17,00<small>a partire da · al kg</small></span></li></ul>
   <div class="cta-row"><a class="btn btn--wa" href="https://wa.me/393515571151?text=Ciao%20Dolce%26Salato%21%20Vorrei%20informazioni" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Prenota su WhatsApp</a></div>
  </div>
 </section>
@@ -124,16 +120,38 @@
  <div class="wrap">
   <div class="footer__grid">
    <div><h4>DOLCE&amp;SALATO · Panificio Pasticceria</h4><address style="font-style:normal">Via Tremestieri, 54, 95030 Mascalucia (CT)<br>Tel./WhatsApp <a href="tel:+393515571151">351 5571151</a></address><p style="margin-top:10px"><a href="https://www.instagram.com/panificio_dolceesalato54/" target="_blank" rel="noopener">Seguici su Instagram</a></p></div>
-   <div><h4>Il sito</h4><ul><li><a href="../#menu">Menu e prezzi</a></li><li><a href="../pizza-mascalucia/">Pizza a Mascalucia</a></li><li><a href="../eventi-mignon-mascalucia/">Eventi e mignon</a></li><li><a href="../#volantino">Volantino</a></li><li><a href="../#dove">Dove siamo</a></li></ul></div>
+   <div><h4>Il sito</h4><ul><li><a href="../#menu">Menu e ordini</a></li><li><a href="../pizza-mascalucia/">Pizza a Mascalucia</a></li><li><a href="../eventi-mignon-mascalucia/">Eventi e mignon</a></li><li><a href="../#volantino">Volantino</a></li><li><a href="../#dove">Dove siamo</a></li></ul></div>
    <div><h4>Contatti rapidi</h4><ul><li><a href="tel:+393515571151">Chiama</a></li><li><a href="https://wa.me/393515571151" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener">Indicazioni</a></li></ul></div>
   </div>
   <div class="legal"><span>© <span id="year">2026</span> Dolce&amp;Salato. Tutti i diritti riservati. [P.IVA da inserire]</span><span>I prezzi possono variare: fa fede il listino in negozio.</span></div>
  </div>
 </footer>
+<div class="cartbar" id="cartbar" hidden>
+ <button type="button" class="cartbar__btn" id="cart-open" aria-haspopup="dialog">
+  <span class="cartbar__count" id="cart-count" aria-hidden="true">0</span>
+  <span class="cartbar__txt"><b>Il tuo ordine</b><small id="cart-total">€ 0,00</small></span>
+  <span class="cartbar__go">Rivedi e invia →</span>
+ </button>
+</div>
+<dialog id="order-dialog" aria-labelledby="od-title">
+ <form id="order-form" method="dialog">
+  <div class="od__head"><h2 id="od-title">Il tuo ordine</h2><button type="button" class="od__x" id="od-close" aria-label="Chiudi">✕</button></div>
+  <ul class="od__lines" id="od-lines"></ul>
+  <p class="od__total">Totale stimato <b id="od-total">€ 0,00</b></p>
+  <p class="od__hint">I prezzi al kg e quelli «da» sono una stima: il conto esatto lo fai al ritiro.</p>
+  <label>Il tuo nome<input name="nome" required autocomplete="given-name" enterkeyhint="next"></label>
+  <label>Quando passi a ritirare?<input name="quando" placeholder="es. oggi alle 13:00" enterkeyhint="next"></label>
+  <label>Note, allergie, pizza in pala da comporre<input name="note" enterkeyhint="send"></label>
+  <button class="btn btn--wa btn--block" type="submit"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Invia su WhatsApp</button>
+  <button class="btn btn--line btn--block" type="button" id="od-clear">Svuota l'ordine</button>
+  <p class="od__hint" style="text-align:center">Si apre WhatsApp con il messaggio pronto. Non salviamo i tuoi dati.</p>
+ </form>
+</dialog>
 <nav class="bar" aria-label="Azioni rapide">
- <a class="main" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Chiama</a>
+ <a class="main" href="../#menu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3M7 4h.01M12 4h.01M17 4h.01"/></svg>Ordina</a>
+ <a href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Chiama</a>
  <a class="wa" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
- <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Indicazioni</a>
+ <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Dove</a>
 </nav>
 <script src="../assets/js/main.js" defer></script>
 </body>

@@ -33,7 +33,7 @@
  <div class="wrap">
   <a class="brand" href="#top" aria-label="Dolce e Salato, torna in alto"><b>DOLCE<i>&amp;</i>SALATO</b><small>Panificio · Pasticceria</small></a>
   <nav class="nav" aria-label="Principale">
-   <a href="#storia">Chi siamo</a><a href="#cosa">Cosa facciamo</a><a href="#galleria">Galleria</a><a href="#menu">Menu e prezzi</a><a href="#eventi">Eventi</a><a href="#volantino">Volantino</a><a href="#dove">Dove siamo</a>
+   <a href="#menu">Menu e ordini</a><a href="#eventi">Feste</a><a href="#galleria">Vetrina</a><a href="#volantino">Volantino</a><a href="#storia">Chi siamo</a><a href="#dove">Dove siamo</a>
   </nav>
   <a class="btn btn--gold nav" style="min-height:44px;padding:.6em 1.2em" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> 351 5571151</a>
   <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
@@ -43,7 +43,7 @@
 <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu di navigazione">
  <div class="drawer__top"><span class="brand"><b>DOLCE<i>&amp;</i>SALATO</b><small>Panificio · Pasticceria</small></span><button class="burger" data-close aria-label="Chiudi il menu" style="font-size:1.2rem">✕</button></div>
  <nav aria-label="Menu mobile">
-  <a href="#storia" data-close>Chi siamo</a><a href="#cosa" data-close>Cosa facciamo</a><a href="#galleria" data-close>Galleria</a><a href="#menu" data-close>Menu e prezzi</a><a href="#eventi" data-close>Eventi</a><a href="#volantino" data-close>Volantino</a><a href="#ordina" data-close>Ordina</a><a href="#dove" data-close>Dove siamo</a>
+  <a href="#menu" data-close>Menu e ordini</a><a href="#eventi" data-close>Feste</a><a href="#galleria" data-close>Vetrina</a><a href="#volantino" data-close>Volantino</a><a href="#storia" data-close>Chi siamo</a><a href="#dove" data-close>Dove siamo</a>
  </nav>
  <div class="drawer__cta">
   <a class="btn btn--wa" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Scrivici su WhatsApp</a>
@@ -55,151 +55,110 @@
 <section class="hero" id="top">
  <div class="hero__bg"><img src="assets/img/hero-legno-pane.webp" alt="" width="1000" height="667" fetchpriority="high" decoding="async"></div>
  <div class="wrap hero__inner">
+  <span class="chip" id="open-badge" hidden><i class="dot"></i><span>…</span></span>
   <svg class="wheat" viewBox="0 0 290 90" aria-hidden="true"><path d="M4 86C90 78 195 56 282 20" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><g transform="translate(18.0 64.0) rotate(-32) scale(1.20)"><path class="ear" style="animation-delay:0.00s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(18.0 67.0) rotate(32) scale(1.20 -1.20)"><path class="ear" style="animation-delay:0.00s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(41.0 61.3) rotate(-32) scale(1.16)"><path class="ear" style="animation-delay:0.08s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(41.0 64.3) rotate(32) scale(1.16 -1.16)"><path class="ear" style="animation-delay:0.08s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(64.0 58.6) rotate(-32) scale(1.11)"><path class="ear" style="animation-delay:0.16s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(64.0 61.6) rotate(32) scale(1.11 -1.11)"><path class="ear" style="animation-delay:0.16s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(87.0 55.9) rotate(-32) scale(1.06)"><path class="ear" style="animation-delay:0.24s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(87.0 58.9) rotate(32) scale(1.06 -1.06)"><path class="ear" style="animation-delay:0.24s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(110.0 53.2) rotate(-32) scale(1.02)"><path class="ear" style="animation-delay:0.32s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(110.0 56.2) rotate(32) scale(1.02 -1.02)"><path class="ear" style="animation-delay:0.32s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(133.0 50.5) rotate(-32) scale(0.97)"><path class="ear" style="animation-delay:0.40s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(133.0 53.5) rotate(32) scale(0.97 -0.97)"><path class="ear" style="animation-delay:0.40s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(156.0 47.8) rotate(-32) scale(0.93)"><path class="ear" style="animation-delay:0.48s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(156.0 50.8) rotate(32) scale(0.93 -0.93)"><path class="ear" style="animation-delay:0.48s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(179.0 45.1) rotate(-32) scale(0.89)"><path class="ear" style="animation-delay:0.56s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(179.0 48.1) rotate(32) scale(0.89 -0.89)"><path class="ear" style="animation-delay:0.56s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(202.0 42.4) rotate(-32) scale(0.84)"><path class="ear" style="animation-delay:0.64s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(202.0 45.4) rotate(32) scale(0.84 -0.84)"><path class="ear" style="animation-delay:0.64s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(225.0 39.7) rotate(-32) scale(0.79)"><path class="ear" style="animation-delay:0.72s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(225.0 42.7) rotate(32) scale(0.79 -0.79)"><path class="ear" style="animation-delay:0.72s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(248.0 37.0) rotate(-32) scale(0.75)"><path class="ear" style="animation-delay:0.80s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g><g transform="translate(248.0 40.0) rotate(32) scale(0.75 -0.75)"><path class="ear" style="animation-delay:0.80s" d="M0 0C8-5 17-3 20 5 11 9 3 7 0 0z"/></g></svg>
-  <h1>DOLCE<span>&amp;</span>SALATO<span class="sr"> – Panificio e pasticceria a Mascalucia</span></h1>
-  <p class="sub" aria-hidden="true">Panificio · Pasticceria</p>
-  <p class="tag">Pizza, tavola calda, rustici e dolci fatti da noi, in Via Tremestieri 54.</p>
+  <p class="wordmark" aria-hidden="true">DOLCE<span>&amp;</span>SALATO</p>
+  <h1>Pane, pizza e dolci a Mascalucia. <span class="script">Si comincia alle 6:30.</span><span class="sr"> Panificio e pasticceria Dolce&amp;Salato, Via Tremestieri 54.</span></h1>
+  <p class="hero__sub">Scegli cosa ti va, componi l'ordine dal telefono e passa a ritirarlo.</p>
   <div class="hero__cta">
-   <a class="btn btn--wa" href="https://wa.me/393515571151?text=Ciao%20Dolce%26Salato%21%20Vorrei%20informazioni" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Ordina su WhatsApp</a>
-   <a class="btn btn--line" href="#menu">Guarda menu e prezzi</a>
-  </div>
-  <div class="chips">
-   <span class="chip" id="open-badge" hidden><i class="dot"></i><span>…</span></span>
-   <span class="chip"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg> Mascalucia (CT)</span>
-   <span class="chip">Pizze da € 4,00</span>
-   <span class="chip">Eventi su prenotazione</span>
+   <a class="btn btn--gold" href="#menu">Componi il tuo ordine</a>
+   <a class="btn btn--line" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Chiama 351 5571151</a>
   </div>
  </div>
- <span class="scroll-hint" aria-hidden="true"></span>
+ <div class="mosaic" aria-hidden="true"><ul class="mosaic__row "><li><img src="assets/img/foto/pala-pistacchio.webp" alt="Pizza in pala al pistacchio" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/arancini.webp" alt="Arancini al pistacchio" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/torta-pistacchio.webp" alt="Torta al pistacchio" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/tartellette.webp" alt="Tartellette alla frutta" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/pizzette.webp" alt="Pizzette e finger food" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/banco-pane.webp" alt="Il banco del pane" width="386" height="440" decoding="async" loading="eager"></li><li aria-hidden="true"><img src="assets/img/foto/pala-pistacchio.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/arancini.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/torta-pistacchio.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/tartellette.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/pizzette.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/banco-pane.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li></ul><ul class="mosaic__row rev"><li><img src="assets/img/foto/gelato-cono.webp" alt="Gelato al cono" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/panini-farciti.webp" alt="Panini farciti" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/pinsa-mora.webp" alt="Pinsa con carpaccio" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/pistacchio-sfoglie.webp" alt="Bomboloni al pistacchio" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/ciambella.webp" alt="Ciambella di pane" width="386" height="440" decoding="async" loading="eager"></li><li><img src="assets/img/foto/torte-frigo.webp" alt="Torte in vetrina" width="386" height="440" decoding="async" loading="eager"></li><li aria-hidden="true"><img src="assets/img/foto/gelato-cono.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/panini-farciti.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/pinsa-mora.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/pistacchio-sfoglie.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/ciambella.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li><li aria-hidden="true"><img src="assets/img/foto/torte-frigo.webp" alt="" width="386" height="440" decoding="async" loading="lazy"></li></ul></div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div><span>Pizza rotonda e a teglia</span><span>Pizza in pala</span><span>Calzoni</span><span>Tavola calda</span><span>Arancini</span><span>Cartocciate</span><span>Rusticheria mignon</span><span>Pasticceria mignon</span><span>Torte e semifreddi</span><span>Salumeria</span><span>Gelato e granite</span><span>Pizza rotonda e a teglia</span><span>Pizza in pala</span><span>Calzoni</span><span>Tavola calda</span><span>Arancini</span><span>Cartocciate</span><span>Rusticheria mignon</span><span>Pasticceria mignon</span><span>Torte e semifreddi</span><span>Salumeria</span><span>Gelato e granite</span></div></div>
-
-<section class="section" id="storia">
- <div class="wrap about">
-  <div class="rv"><div class="about__img"><img src="assets/img/foto/vetrina.webp" alt="Un panino con crema di pistacchio davanti all'ingresso di Dolce&amp;Salato a Mascalucia" width="386" height="440" loading="lazy"><span class="stamp">Fatto da noi</span></div></div>
-  <div>
-   <span class="eyebrow rv">Chi siamo</span>
-   <h2 class="rv">Dal forno alla vetrina, <span class="script">tutto in un posto.</span></h2>
-   <p class="lead rv d1">Dolce&amp;Salato è il panificio e la pasticceria di Via Tremestieri a Mascalucia. Qui trovi pizza, tavola calda, rustici e dolci mignon per le tue feste, dall'arancino al pistacchio alla torta di compleanno.</p>
-   <dl class="facts rv d1"><div><dt>Cos'è</dt><dd>Panificio e pasticceria a Mascalucia (CT)</dd></div><div><dt>Dove</dt><dd>Via Tremestieri, 54</dd></div><div><dt>Orari</dt><dd>Lun–sab 6:30–21:30, dom 6:30–13:30</dd></div><div><dt>Telefono</dt><dd><a href="tel:+393515571151">351 5571151</a> (anche WhatsApp)</dd></div><div><dt>Prezzi</dt><dd>Pizze da € 4,00 · tavola calda da € 0,80 · rustici mignon da € 12/kg · pasticceria mignon € 14/kg</dd></div></dl>
-   <div class="values">
-    <div class="value rv d1"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 22 16 8"/><path d="M3.5 12.5 6 15l2.5-2.5L6 10zM7.5 8.5 10 11l2.5-2.5L10 6zM11.5 4.5 14 7l2.5-2.5L14 2zM16 12l2.5 2.5L21 12l-2.5-2.5zM12 16l2.5 2.5L17 16l-2.5-2.5z"/></svg><div><b>Impasti anche speciali</b><span>Integrale, kamut, 5 cereali e grano saraceno su prenotazione.</span></div></div>
-    <div class="value rv d2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3M7 4h.01M12 4h.01M17 4h.01"/></svg><div><b>Pasticceria di nostra produzione</b><span>Mignon, torte classiche e semifreddi.</span></div></div>
-    <div class="value rv d1"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg><div><b>Organizziamo i tuoi eventi</b><span>Buffet, compleanni, lauree e aperitivi.</span></div></div>
-    <div class="value rv d2"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><div><b>Prezzi chiari</b><span>Il listino completo è qui sul sito.</span></div></div>
-   </div>
-  </div>
+<section class="section" id="cosa">
+ <div class="wrap">
+  <div class="head"><span class="eyebrow rv">Pizza, rustici e dolci a Mascalucia</span><h2 class="rv">Cosa ti va <span class="script">oggi?</span></h2></div>
+  <div class="intents"><a class="intent rv d1" href="#menu" data-tab="menu-tc"><img src="assets/img/foto/arancini.webp" alt="" width="386" height="440" loading="lazy" decoding="async"><span class="intent__txt"><b>Pausa pranzo</b><span>Cartocciate, arancini e bombe</span><em>da € 0,80 al pezzo</em></span></a><a class="intent rv d2" href="#menu" data-tab="menu-pizze"><img src="assets/img/foto/pala-pistacchio.webp" alt="" width="386" height="440" loading="lazy" decoding="async"><span class="intent__txt"><b>Pizza</b><span>Rotonda, a teglia o in pala</span><em>da € 4,00</em></span></a><a class="intent rv d3" href="#menu" data-tab="menu-pasticceria"><img src="assets/img/foto/torta-pistacchio.webp" alt="" width="386" height="440" loading="lazy" decoding="async"><span class="intent__txt"><b>Dolci e torte</b><span>Mignon, torte e semifreddi</span><em>da € 14 al kg</em></span></a><a class="intent rv d1" href="#eventi"><img src="assets/img/foto/pizzette.webp" alt="" width="386" height="440" loading="lazy" decoding="async"><span class="intent__txt"><b>Una festa</b><span>Rustici e dolci mignon a vassoio</span><em>calcola quanti ne servono</em></span></a></div>
  </div>
 </section>
 
-<section class="section section--brown" id="cosa">
+<section class="section section--brown" id="menu">
  <div class="wrap">
-  <div class="head"><span class="eyebrow rv">Cosa facciamo</span><h2 class="rv">Pizza, rustici e pasticceria <span class="script">a Mascalucia.</span></h2></div>
-  <div class="cards"><article class="card rv d1"><div class="card__img"><img src="assets/img/foto/pala-pistacchio.webp" alt="Pizza in pala con mortadella e granella di pistacchio" width="386" height="440" loading="lazy" decoding="async"></div><div class="card__body"><h3>Pizze</h3><p>Rotonda, a teglia e in pala. Impasti con farine speciali su prenotazione.</p><span class="card__price">da € 4,00</span><a class="card__link" href="#menu" data-tab="menu-pizze">Vedi il menu →</a></div></article><article class="card rv d2"><div class="card__img"><img src="assets/img/foto/arancini.webp" alt="Arancini con prosciutto crudo e crema di pistacchio" width="386" height="440" loading="lazy" decoding="async"></div><div class="card__body"><h3>Tavola calda e rusticheria</h3><p>Cartocciate, arancini, bombe e rustici: pezzi medi per la pausa, mignon per le feste.</p><span class="card__price">da € 0,80 al pezzo</span><a class="card__link" href="#menu" data-tab="menu-tc">Vedi il menu →</a></div></article><article class="card rv d3"><div class="card__img"><img src="assets/img/foto/torta-pistacchio.webp" alt="Torta al pistacchio nella vetrina della pasticceria" width="386" height="440" loading="lazy" decoding="async"></div><div class="card__body"><h3>Pasticceria</h3><p>Mignon di nostra produzione, torte classiche e semifreddi.</p><span class="card__price">mignon € 14 al kg</span><a class="card__link" href="#menu" data-tab="menu-pasticceria">Vedi il menu →</a></div></article><article class="card rv d1"><div class="card__img"><img src="assets/img/foto/gelato-cono.webp" alt="Cono con gelato al biscotto Lotus" width="386" height="440" loading="lazy" decoding="async"></div><div class="card__body"><h3>Gelato e granite</h3><p>Gelati e granite di nostra produzione, per rinfrescare l&#x27;estate.</p><span class="card__price">chiedi i gusti del giorno</span><a class="card__link" href="#dove" >Passa a trovarci →</a></div></article></div>
- </div>
-</section>
-
-
-<section class="section" id="galleria">
- <div class="wrap">
-  <div class="head"><span class="eyebrow rv">Dal nostro banco</span><h2 class="rv">Fresco ogni giorno, <span class="script">guarda tu stesso.</span></h2><p class="lead rv d1">Un assaggio di quello che trovi in vetrina. Scorri, poi vieni a scegliere dal vivo.</p></div>
- </div>
- <ul class="gallery" aria-label="Galleria fotografica, scorri in orizzontale" tabindex="0" role="region"><li class="shot"><img src="assets/img/foto/pistacchio-sfoglie.webp" alt="Bomboloni al pistacchio — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/tartellette.webp" alt="Tartellette alla frutta e bignè — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pinsa-mora.webp" alt="Pinsa romana con carpaccio e more — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/banco-pane.webp" alt="Il banco del pane — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/panino.webp" alt="Panino con prosciutto e mozzarella — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/torte-frigo.webp" alt="Torte nella vetrina refrigerata — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pizzette.webp" alt="Pizzette e finger food — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/ciambella.webp" alt="Ciambella di pane lievitato — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/salumeria.webp" alt="Il banco salumeria — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/gelato-vaschette.webp" alt="Vaschette di gelato artigianale — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/panini-farciti.webp" alt="Panini farciti al pistacchio — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pizza-secca.webp" alt="Pizza secca croccante — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li></ul>
- <div class="wrap" style="margin-top:28px"><a class="btn btn--line" href="https://www.instagram.com/panificio_dolceesalato54/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500h.01"/></svg> Altre foto e novità su Instagram</a></div>
-</section>
-
-<section class="section" id="menu">
- <div class="wrap">
-  <div class="head"><span class="eyebrow rv">Menu e prezzi</span><h2 class="rv">Menu e prezzi: <span class="script">il listino completo.</span></h2><p class="lead rv d1">Gli stessi prezzi del nostro volantino, sempre a portata di mano.</p></div>
+  <div class="head"><span class="eyebrow rv">Menu e ordini</span><h2 class="rv">Scegli e componi <span class="script">l'ordine.</span></h2><p class="lead rv d1">Tocca <b>Aggiungi</b> sui piatti che vuoi. A fine scelta mandi l'ordine su WhatsApp e passi a ritirarlo. Se hai dubbi, chiamaci.</p></div>
   <div class="tabs" role="tablist" aria-label="Categorie del menu">
    <button class="tab" role="tab" id="t-pizze" aria-controls="menu-pizze" aria-selected="true">Pizze</button>
    <button class="tab" role="tab" id="t-calzoni" aria-controls="menu-calzoni" aria-selected="false" tabindex="-1">Calzoni e pala</button>
    <button class="tab" role="tab" id="t-tc" aria-controls="menu-tc" aria-selected="false" tabindex="-1">Tavola calda</button>
-   <button class="tab" role="tab" id="t-rust" aria-controls="menu-rust" aria-selected="false" tabindex="-1">Rusticheria mignon</button>
+   <button class="tab" role="tab" id="t-rust" aria-controls="menu-rust" aria-selected="false" tabindex="-1">Rustici mignon</button>
    <button class="tab" role="tab" id="t-past" aria-controls="menu-pasticceria" aria-selected="false" tabindex="-1">Pasticceria</button>
   </div>
 
   <div class="panel" role="tabpanel" id="menu-pizze" aria-labelledby="t-pizze" data-title="Le nostre pizze">
    <div class="toggle" role="group" aria-label="Formato pizza"><button data-mode="r" aria-pressed="true">Rotonda</button><button data-mode="t" aria-pressed="false">Teglia</button></div>
-   <ul class="menu-list cols menu-pizze" data-mode="r"><li class="item"><h3>Faccia di vecchia</h3><p>Olio evo, sale, pepe</p><span class="price"><span class="r">€ 4,00</span><span class="t">€ 9,00</span></span></li>
-<li class="item"><h3>Pizzaiola</h3><p>Doppio pomodoro, olio evo, origano</p><span class="price"><span class="r">€ 4,50</span><span class="t">€ 9,00</span></span></li>
-<li class="item"><h3>Biancaneve</h3><p>Mozzarella, olio evo, origano</p><span class="price"><span class="r">€ 4,50</span><span class="t">€ 11,00</span></span></li>
-<li class="item"><h3>Margherita</h3><p>Pomodoro, mozzarella, olio evo, origano</p><span class="price"><span class="r">€ 5,00</span><span class="t">€ 11,00</span></span></li>
-<li class="item"><h3>Norma</h3><p>Pomodoro, melanzane fritte, ricotta salata</p><span class="price"><span class="r">€ 5,50</span><span class="t">€ 13,00</span></span></li>
-<li class="item"><h3>Patapizza</h3><p>Pomodoro, mozzarella, patatine fritte, wurstel</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
-<li class="item"><h3>Capricciosa</h3><p>Pomodoro, mozzarella, prosciutto cotto, funghi freschi, uovo sodo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
-<li class="item"><h3>Tonnata</h3><p>Pomodoro, mozzarella, tonno, cipolla, olio evo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 15,00</span></span></li>
-<li class="item"><h3>Patate</h3><p>Mozzarella, patate a fette, prosciutto cotto, grana, olio evo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 14,00</span></span></li>
-<li class="item"><h3>Vegetariana</h3><p>Mozzarella, pomodoro, verdure grigliate di stagione, funghi freschi</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
-<li class="item"><h3>Parmigiana</h3><p>Pomodoro, mozzarella, melanzane fritte, prosciutto cotto, uovo sodo, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 16,00</span></span></li>
-<li class="item"><h3>Diavola</h3><p>Pomodoro, mozzarella, salame piccante, olive, cipolla</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
-<li class="item"><h3>Rucola</h3><p>Pomodoro, mozzarella, prosciutto crudo, rucola, grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
-<li class="item"><h3>Rustica</h3><p>Pomodoro, mozzarella, prosciutto cotto, olive, cipolla, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
-<li class="item"><h3>Friarielli</h3><p>Mozzarella, pomodoro, friarielli, salsiccia, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
-<li class="item"><h3>Pistacchio</h3><p>Mozzarella, pesto di pistacchio, crudo o mortadella, farina di pistacchio</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
-<li class="item"><h3>Porcina</h3><p>Mozzarella, porcini, salsiccia, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
-<li class="item"><h3>Noci e pancetta</h3><p>Mozzarella, ciliegino, pancetta coppata, noci, scaglie di grana</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
-<li class="item"><h3>Salmone</h3><p>Mozzarella, salmone affumicato, panna, rucola, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 7,00</span><span class="t">€ 19,00</span></span></li>
-<li class="item"><h3>Chips</h3><p>Mozzarella, chips di patate fritte, pancetta, granella di nocciole, miele colato</p><span class="price"><span class="r">€ 7,00</span><span class="t">€ 19,00</span></span></li></ul>
+   <ul class="menu-list cols menu-pizze" data-mode="r"><li class="item" data-id="pz-faccia-di-vecchia" data-name="Faccia di vecchia" data-r="4.00" data-t="9.00"><h3>Faccia di vecchia</h3><p>Olio evo, sale, pepe</p><span class="price"><span class="r">€ 4,00</span><span class="t">€ 9,00</span></span></li>
+<li class="item" data-id="pz-pizzaiola" data-name="Pizzaiola" data-r="4.50" data-t="9.00"><h3>Pizzaiola</h3><p>Doppio pomodoro, olio evo, origano</p><span class="price"><span class="r">€ 4,50</span><span class="t">€ 9,00</span></span></li>
+<li class="item" data-id="pz-biancaneve" data-name="Biancaneve" data-r="4.50" data-t="11.00"><h3>Biancaneve</h3><p>Mozzarella, olio evo, origano</p><span class="price"><span class="r">€ 4,50</span><span class="t">€ 11,00</span></span></li>
+<li class="item" data-id="pz-margherita" data-name="Margherita" data-r="5.00" data-t="11.00"><h3>Margherita</h3><p>Pomodoro, mozzarella, olio evo, origano</p><span class="price"><span class="r">€ 5,00</span><span class="t">€ 11,00</span></span></li>
+<li class="item" data-id="pz-norma" data-name="Norma" data-r="5.50" data-t="13.00"><h3>Norma</h3><p>Pomodoro, melanzane fritte, ricotta salata</p><span class="price"><span class="r">€ 5,50</span><span class="t">€ 13,00</span></span></li>
+<li class="item" data-id="pz-patapizza" data-name="Patapizza" data-r="6.00" data-t="13.00"><h3>Patapizza</h3><p>Pomodoro, mozzarella, patatine fritte, wurstel</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
+<li class="item" data-id="pz-capricciosa" data-name="Capricciosa" data-r="6.00" data-t="13.00"><h3>Capricciosa</h3><p>Pomodoro, mozzarella, prosciutto cotto, funghi freschi, uovo sodo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
+<li class="item" data-id="pz-tonnata" data-name="Tonnata" data-r="6.00" data-t="15.00"><h3>Tonnata</h3><p>Pomodoro, mozzarella, tonno, cipolla, olio evo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 15,00</span></span></li>
+<li class="item" data-id="pz-patate" data-name="Patate" data-r="6.00" data-t="14.00"><h3>Patate</h3><p>Mozzarella, patate a fette, prosciutto cotto, grana, olio evo</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 14,00</span></span></li>
+<li class="item" data-id="pz-vegetariana" data-name="Vegetariana" data-r="6.00" data-t="13.00"><h3>Vegetariana</h3><p>Mozzarella, pomodoro, verdure grigliate di stagione, funghi freschi</p><span class="price"><span class="r">€ 6,00</span><span class="t">€ 13,00</span></span></li>
+<li class="item" data-id="pz-parmigiana" data-name="Parmigiana" data-r="6.50" data-t="16.00"><h3>Parmigiana</h3><p>Pomodoro, mozzarella, melanzane fritte, prosciutto cotto, uovo sodo, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 16,00</span></span></li>
+<li class="item" data-id="pz-diavola" data-name="Diavola" data-r="6.50" data-t="15.00"><h3>Diavola</h3><p>Pomodoro, mozzarella, salame piccante, olive, cipolla</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
+<li class="item" data-id="pz-rucola" data-name="Rucola" data-r="6.50" data-t="15.00"><h3>Rucola</h3><p>Pomodoro, mozzarella, prosciutto crudo, rucola, grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
+<li class="item" data-id="pz-rustica" data-name="Rustica" data-r="6.50" data-t="15.00"><h3>Rustica</h3><p>Pomodoro, mozzarella, prosciutto cotto, olive, cipolla, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 15,00</span></span></li>
+<li class="item" data-id="pz-friarielli" data-name="Friarielli" data-r="6.50" data-t="18.00"><h3>Friarielli</h3><p>Mozzarella, pomodoro, friarielli, salsiccia, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
+<li class="item" data-id="pz-pistacchio" data-name="Pistacchio" data-r="6.50" data-t="18.00"><h3>Pistacchio</h3><p>Mozzarella, pesto di pistacchio, crudo o mortadella, farina di pistacchio</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
+<li class="item" data-id="pz-porcina" data-name="Porcina" data-r="6.50" data-t="18.00"><h3>Porcina</h3><p>Mozzarella, porcini, salsiccia, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
+<li class="item" data-id="pz-noci-e-pancetta" data-name="Noci e pancetta" data-r="6.50" data-t="18.00"><h3>Noci e pancetta</h3><p>Mozzarella, ciliegino, pancetta coppata, noci, scaglie di grana</p><span class="price"><span class="r">€ 6,50</span><span class="t">€ 18,00</span></span></li>
+<li class="item" data-id="pz-salmone" data-name="Salmone" data-r="7.00" data-t="19.00"><h3>Salmone</h3><p>Mozzarella, salmone affumicato, panna, rucola, scaglie di grana, olio evo</p><span class="price"><span class="r">€ 7,00</span><span class="t">€ 19,00</span></span></li>
+<li class="item" data-id="pz-chips" data-name="Chips" data-r="7.00" data-t="19.00"><h3>Chips</h3><p>Mozzarella, chips di patate fritte, pancetta, granella di nocciole, miele colato</p><span class="price"><span class="r">€ 7,00</span><span class="t">€ 19,00</span></span></li></ul>
    <p class="note"><b>Supplementi:</b> € 0,50 per pizza rotonda, € 1,50 per pizza a teglia.<br><b>Bibita inclusa:</b> con ogni pizza rotonda una lattina da 15 cl; con ogni pizza a teglia una bibita Tomarchio in bottiglia; con ogni mezza teglia una lattina da 33 cl.</p>
-   <p class="note"><b>Farine speciali:</b> integrale, kamut, 5 cereali, grano saraceno. Solo su prenotazione 24 ore prima.</p>
+   <p class="note"><b>Farine speciali:</b> integrale, kamut, 5 cereali, grano saraceno. Solo su prenotazione 24 ore prima: scrivilo nelle note.</p>
+   <p class="meta">Tutti i dettagli sulla <a href="pizza-mascalucia/" style="color:var(--gold);text-decoration:underline">pizza a Mascalucia</a>.</p>
   </div>
 
   <div class="panel" role="tabpanel" id="menu-calzoni" aria-labelledby="t-calzoni" data-title="Calzoni, pizze in pala e pane condito" hidden>
-   <ul class="menu-list cols"><li class="item"><h3>Calzone Verde</h3><p>Mozzarella, spinaci, prosciutto cotto, olive nere</p><span class="price">€ 6,50</span></li>
-<li class="item"><h3>Calzone Siciliano</h3><p>Tuma, acciughe, olive nere, cipolla</p><span class="price">€ 7,00</span></li>
-<li class="item"><h3>Calzone alla Diavola</h3><p>Tuma, salame piccante, cipolla, olive nere</p><span class="price">€ 7,00</span></li>
-<li class="item"><h3>Calzone Porcino</h3><p>Mozzarella, porcini, prosciutto cotto, olive nere</p><span class="price">€ 7,50</span></li></ul>
-   <ul class="menu-list cols" style="margin-top:18px">
-    <li class="item"><h3>Pizza in pala</h3><p>Trasforma la pizza rotonda in pizza in pala o componila a tuo gusto</p><span class="price">€ 8,00<small>a partire da</small></span></li>
-    <li class="item"><h3>Pane condito</h3><p>Componilo a tuo gusto</p><span class="price">€ 8,00<small>a partire da</small></span></li>
-   </ul>
-   <p class="note"><b>Supplementi:</b> € 0,50 per pizza rotonda, € 1,50 per pizza a teglia.</p>
+   <ul class="menu-list cols"><li class="item" data-id="cz-calzone-verde" data-name="Calzone Verde" data-price="6.50"><h3>Calzone Verde</h3><p>Mozzarella, spinaci, prosciutto cotto, olive nere</p><span class="price">€ 6,50</span></li>
+<li class="item" data-id="cz-calzone-siciliano" data-name="Calzone Siciliano" data-price="7.00"><h3>Calzone Siciliano</h3><p>Tuma, acciughe, olive nere, cipolla</p><span class="price">€ 7,00</span></li>
+<li class="item" data-id="cz-calzone-alla-diavola" data-name="Calzone alla Diavola" data-price="7.00"><h3>Calzone alla Diavola</h3><p>Tuma, salame piccante, cipolla, olive nere</p><span class="price">€ 7,00</span></li>
+<li class="item" data-id="cz-calzone-porcino" data-name="Calzone Porcino" data-price="7.50"><h3>Calzone Porcino</h3><p>Mozzarella, porcini, prosciutto cotto, olive nere</p><span class="price">€ 7,50</span></li></ul>
+   <ul class="menu-list cols" style="margin-top:18px"><li class="item" data-id="pala" data-name="Pizza in pala" data-price="8.00" data-from="1"><h3>Pizza in pala</h3><p>Trasforma la pizza rotonda in pizza in pala o componila a tuo gusto (scrivi cosa vuoi nelle note)</p><span class="price">€ 8,00<small>a partire da</small></span></li><li class="item" data-id="pane-condito" data-name="Pane condito" data-price="8.00" data-from="1"><h3>Pane condito</h3><p>Componilo a tuo gusto (scrivi cosa vuoi nelle note)</p><span class="price">€ 8,00<small>a partire da</small></span></li></ul>
   </div>
 
-  <div class="panel" role="tabpanel" id="menu-tc" aria-labelledby="t-tc" data-title="Tavola calda · pezzi medi" hidden><div class="tier"><div class="tier__head"><h3>Tavola calda · pezzi medi</h3><span class="price">€ 0,80</span></div><ul><li>Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci)</li><li>Pizzette</li><li>Bombe al forno classiche</li></ul></div><div class="tier"><div class="tier__head"><h3>Tavola calda · pezzi medi</h3><span class="price">€ 0,90</span></div><ul><li>Cipollina</li><li>Patè</li><li>Arancini burro e ragù</li><li>Cartocciate (pistacchio, porcini, friarielli)</li></ul></div><div class="tier"><div class="tier__head"><h3>Tavola calda · pezzi medi</h3><span class="price">€ 1,00</span></div><ul><li>Arancini al pistacchio</li><li>Cartocciate al salmone e philadelphia</li><li>Bombe fritte vari gusti</li></ul></div></div>
+  <div class="panel" role="tabpanel" id="menu-tc" aria-labelledby="t-tc" data-title="Tavola calda · pezzi medi" hidden><div class="tier"><div class="tier__head"><h3>Pezzi medi a € 0,80</h3></div><ul><li data-id="tc-cartocciate-semplici-wurstel-e-patatine-melanzane-uovo-spinaci" data-name="Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci)" data-price="0.80"><span class="lname">Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci)<small>€ 0,80 al pezzo</small></span></li><li data-id="tc-pizzette" data-name="Pizzette" data-price="0.80"><span class="lname">Pizzette<small>€ 0,80 al pezzo</small></span></li><li data-id="tc-bombe-al-forno-classiche" data-name="Bombe al forno classiche" data-price="0.80"><span class="lname">Bombe al forno classiche<small>€ 0,80 al pezzo</small></span></li></ul></div><div class="tier"><div class="tier__head"><h3>Pezzi medi a € 0,90</h3></div><ul><li data-id="tc-cipollina" data-name="Cipollina" data-price="0.90"><span class="lname">Cipollina<small>€ 0,90 al pezzo</small></span></li><li data-id="tc-pat" data-name="Patè" data-price="0.90"><span class="lname">Patè<small>€ 0,90 al pezzo</small></span></li><li data-id="tc-arancini-burro-e-rag" data-name="Arancini burro e ragù" data-price="0.90"><span class="lname">Arancini burro e ragù<small>€ 0,90 al pezzo</small></span></li><li data-id="tc-cartocciate-pistacchio-porcini-friarielli" data-name="Cartocciate (pistacchio, porcini, friarielli)" data-price="0.90"><span class="lname">Cartocciate (pistacchio, porcini, friarielli)<small>€ 0,90 al pezzo</small></span></li></ul></div><div class="tier"><div class="tier__head"><h3>Pezzi medi a € 1,00</h3></div><ul><li data-id="tc-arancini-al-pistacchio" data-name="Arancini al pistacchio" data-price="1.00"><span class="lname">Arancini al pistacchio<small>€ 1,00 al pezzo</small></span></li><li data-id="tc-cartocciate-al-salmone-e-philadelphia" data-name="Cartocciate al salmone e philadelphia" data-price="1.00"><span class="lname">Cartocciate al salmone e philadelphia<small>€ 1,00 al pezzo</small></span></li><li data-id="tc-bombe-fritte-vari-gusti" data-name="Bombe fritte vari gusti" data-price="1.00"><span class="lname">Bombe fritte vari gusti<small>€ 1,00 al pezzo</small></span></li></ul></div></div>
 
   <div class="panel" role="tabpanel" id="menu-rust" aria-labelledby="t-rust" data-title="Rusticheria mignon" hidden>
-   <ul class="menu-list cols"><li class="item"><h3>Focacce a mini porzioni, vari tipi</h3><span class="price">€ da 12,00<small>al kg</small></span></li>
-<li class="item"><h3>Rustici classici, vari tipi</h3><span class="price">€ 12,00<small>al kg</small></span></li>
-<li class="item"><h3>Arancinetti burro o ragù</h3><span class="price">€ 14,00<small>al kg</small></span></li>
-<li class="item"><h3>Arancinetti al pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini cornetti salati con crudo, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini cornetti salati con salmone, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
-<li class="item"><h3>Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li></ul>
-   <div class="note"><b>Anche mignon:</b><ul style="margin-top:8px;color:var(--cream-dim)"><li>Mini hot dog (wurstel, patatine, tomato e maionese)</li><li>Pizza secca, vari tipi</li><li>Mini hamburger (polpettine di carne, maionese, insalata e pomodoro a fette)</li><li>Rustici di sfoglia, vari tipi</li><li>Mini burger con cotoletta e patatine</li></ul><p style="margin-top:8px">Per questi formati chiedi il prezzo al kg.</p></div>
-   <p class="note"><b>Per feste ed eventi:</b> calcola la quantità giusta nella sezione <a href="#eventi" style="color:var(--gold);text-decoration:underline">Eventi</a>.</p>
+   <ul class="menu-list cols"><li class="item" data-id="rk-focacce-a-mini-porzioni-vari-tipi" data-name="Focacce a mini porzioni, vari tipi" data-price="12.00" data-unit="kg" data-from="1"><h3>Focacce a mini porzioni, vari tipi</h3><span class="price">€ da 12,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-rustici-classici-vari-tipi" data-name="Rustici classici, vari tipi" data-price="12.00" data-unit="kg" data-from="0"><h3>Rustici classici, vari tipi</h3><span class="price">€ 12,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-arancinetti-burro-o-rag" data-name="Arancinetti burro o ragù" data-price="14.00" data-unit="kg" data-from="0"><h3>Arancinetti burro o ragù</h3><span class="price">€ 14,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-arancinetti-al-pistacchio" data-name="Arancinetti al pistacchio" data-price="18.00" data-unit="kg" data-from="0"><h3>Arancinetti al pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-cornetti-salati-con-crudo-philadelphia-e-rucola" data-name="Mini cornetti salati con crudo, philadelphia e rucola" data-price="16.00" data-unit="kg" data-from="0"><h3>Mini cornetti salati con crudo, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-cornetti-salati-con-salmone-philadelphia-e-rucola" data-name="Mini cornetti salati con salmone, philadelphia e rucola" data-price="16.00" data-unit="kg" data-from="0"><h3>Mini cornetti salati con salmone, philadelphia e rucola</h3><span class="price">€ 16,00<small>al kg</small></span></li>
+<li class="item" data-id="rk-mini-mafaldine-con-pesto-di-pistacchio-mortadella-e-polvere-di-pistacchio" data-name="Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio" data-price="18.00" data-unit="kg" data-from="0"><h3>Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio</h3><span class="price">€ 18,00<small>al kg</small></span></li></ul>
+   <div class="note"><b>Anche mignon, chiedi il prezzo al kg:</b><ul style="margin-top:8px;color:var(--cream-dim)"><li>Mini hot dog (wurstel, patatine, tomato e maionese)</li><li>Pizza secca, vari tipi</li><li>Mini hamburger (polpettine di carne, maionese, insalata e pomodoro a fette)</li><li>Rustici di sfoglia, vari tipi</li><li>Mini burger con cotoletta e patatine</li></ul></div>
+   <p class="note"><b>Per una festa?</b> Calcola quanti chili servono nella sezione <a href="#eventi" style="color:var(--gold);text-decoration:underline">Feste</a>.</p>
   </div>
 
   <div class="panel" role="tabpanel" id="menu-pasticceria" aria-labelledby="t-past" data-title="Pasticceria" hidden>
-   <ul class="menu-list cols">
-    <li class="item"><h3>Pasticceria mignon di nostra produzione</h3><span class="price">€ 14,00<small>al kg</small></span></li>
-    <li class="item"><h3>Torte classiche</h3><span class="price">€ 15,00<small>a partire da · al kg</small></span></li>
-    <li class="item"><h3>Semifreddi</h3><span class="price">€ 17,00<small>a partire da · al kg</small></span></li>
-   </ul>
-   <p class="note"><b>In estate</b> da noi trovi anche granite e gelati di nostra produzione.</p>
+   <ul class="menu-list cols"><li class="item" data-id="ps-pasticceria-mignon-di-nostra-produzione" data-name="Pasticceria mignon di nostra produzione" data-price="14.00" data-unit="kg" data-from="0"><h3>Pasticceria mignon di nostra produzione</h3><span class="price">€ 14,00<small>al kg</small></span></li><li class="item" data-id="ps-torte-classiche" data-name="Torte classiche" data-price="15.00" data-unit="kg" data-from="1"><h3>Torte classiche</h3><span class="price">€ 15,00<small>a partire da · al kg</small></span></li><li class="item" data-id="ps-semifreddi" data-name="Semifreddi" data-price="17.00" data-unit="kg" data-from="1"><h3>Semifreddi</h3><span class="price">€ 17,00<small>a partire da · al kg</small></span></li></ul>
+   <p class="note"><b>In estate</b> trovi anche granite e gelati di nostra produzione.</p>
   </div>
-  <div class="cta-row rv"><a class="btn btn--wa" href="https://wa.me/393515571151?text=Ciao%20Dolce%26Salato%21%20Vorrei%20ordinare" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Ordina su WhatsApp</a><a class="btn btn--line" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Chiama 351 5571151</a></div>
-  <p class="meta" style="text-align:center;margin-top:18px">Approfondisci: <a href="pizza-mascalucia/" style="color:var(--gold);text-decoration:underline">pizza a Mascalucia</a> · <a href="eventi-mignon-mascalucia/" style="color:var(--gold);text-decoration:underline">rusticheria e pasticceria mignon per eventi</a></p>
+  <p class="meta" style="margin-top:20px">Hai un'allergia o un dubbio? <a href="tel:+393515571151" style="color:var(--gold);text-decoration:underline">Chiamaci</a> prima di ordinare.</p>
  </div>
 </section>
 
-<section class="section section--brown" id="eventi">
+<section class="section" id="eventi">
  <div class="wrap events">
   <div>
-   <span class="eyebrow rv">Eventi</span>
-   <h2 class="rv">Rusticheria e pasticceria mignon <span class="script">per i tuoi eventi.</span></h2>
-   <p class="lead rv d1">Compleanni, lauree, buffet o aperitivi: dicci quanti siete e per quando. Il calcolatore ti dà una stima dei chili e del costo, poi ci sentiamo per il preventivo.</p>
+   <span class="eyebrow rv">Feste e rinfreschi</span>
+   <h2 class="rv">Hai una festa? <span class="script">Il tavolo lo prepariamo noi.</span></h2>
+   <p class="lead rv d1">Dimmi che festa è e quanti siete: il calcolatore ti dice quanti chili di rustici e dolci mignon servono e quanto costano. Poi mandi la richiesta a noi su WhatsApp e ci accordiamo.</p>
    <ol class="steps rv d2">
-    <li><span><b>Calcola</b> quanti kg servono per i tuoi ospiti.</span></li>
+    <li><span><b>Calcola</b> i chili per i tuoi ospiti.</span></li>
     <li><span><b>Scrivici</b> su WhatsApp: il messaggio è già pronto.</span></li>
     <li><span><b>Ritira</b> il giorno della festa, concordando l'orario con noi.</span></li>
    </ol>
+   <p class="meta rv d2" style="margin-top:18px">Il listino dei mignon è nella <a href="eventi-mignon-mascalucia/" style="color:var(--gold);text-decoration:underline">pagina dedicata agli eventi</a>.</p>
   </div>
   <form class="calc rv" onsubmit="return false" aria-labelledby="calc-t">
-   <h3 id="calc-t">Calcolatore per la tua festa</h3>
-   <label for="kind">Che evento è?</label>
+   <h3 id="calc-t">Quanti chili ti servono?</h3>
+   <label for="kind">Che festa è?</label>
    <select id="kind"><option value="bimbi">Compleanno / festa bimbi</option><option value="aperitivo" selected>Aperitivo</option><option value="buffet">Buffet / cena in piedi</option><option value="laurea">Laurea / festa con dolci</option></select>
    <label for="ppl">Quante persone? <output id="ppl-out" for="ppl">30 persone</output></label>
    <input type="range" id="ppl" min="10" max="200" step="5" value="30">
@@ -209,10 +168,18 @@
     <small>di rusticheria + pasticceria mignon</small>
     <p style="margin-top:12px">Stima: <b id="est" style="color:var(--gold)">–</b></p>
    </div>
-   <a class="btn btn--wa btn--block" id="calc-wa" style="width:100%" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Chiedi il preventivo</a>
-   <p class="meta">Stima indicativa basata sui prezzi al kg del listino (rustici € 12–18, mignon € 14). Il preventivo definitivo lo concordiamo con te.</p>
+   <a class="btn btn--wa btn--block" id="calc-wa" style="width:100%" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Manda la richiesta a Dolce&amp;Salato</a>
+   <p class="meta">Stima basata sui prezzi al kg del listino (rustici € 12–18, mignon € 14). Il preventivo definitivo lo concordiamo con te.</p>
   </form>
  </div>
+</section>
+
+<section class="section section--brown" id="galleria">
+ <div class="wrap">
+  <div class="head"><span class="eyebrow rv">La vetrina</span><h2 class="rv">Guarda cosa c'è <span class="script">sui nostri banchi.</span></h2><p class="lead rv d1">Foto vere, prese dai nostri post. La vetrina cambia ogni giorno: passa a vedere quella di oggi.</p></div>
+ </div>
+ <ul class="gallery" aria-label="Galleria fotografica, scorri in orizzontale" tabindex="0" role="region"><li class="shot"><img src="assets/img/foto/pistacchio-sfoglie.webp" alt="Bomboloni al pistacchio — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/tartellette.webp" alt="Tartellette alla frutta e bignè — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pinsa-mora.webp" alt="Pinsa romana con carpaccio e more — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/banco-pane.webp" alt="Il banco del pane — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/panino.webp" alt="Panino con prosciutto e mozzarella — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/torte-frigo.webp" alt="Torte nella vetrina refrigerata — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pizzette.webp" alt="Pizzette e finger food — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/ciambella.webp" alt="Ciambella di pane lievitato — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/salumeria.webp" alt="Il banco salumeria — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/gelato-vaschette.webp" alt="Vaschette di gelato artigianale — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/panini-farciti.webp" alt="Panini farciti al pistacchio — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li><li class="shot"><img src="assets/img/foto/pizza-secca.webp" alt="Pizza secca croccante — Dolce&amp;Salato" width="386" height="440" loading="lazy" decoding="async"></li></ul>
+ <div class="wrap" style="margin-top:28px"><a class="btn btn--line" href="https://www.instagram.com/panificio_dolceesalato54/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500h.01"/></svg> Altre foto su Instagram</a></div>
 </section>
 
 <section class="section" id="volantino">
@@ -223,8 +190,8 @@
   </div>
   <div>
    <span class="eyebrow rv">Il volantino</span>
-   <h2 class="rv">Portalo con te. <span class="script">Gratis.</span></h2>
-   <p class="lead rv d1">Scarica il volantino di Dolce&amp;Salato: listino della tavola calda, rusticheria e pasticceria mignon, tutte le pizze con i prezzi e il QR code per seguirci su Instagram. Salvalo sul telefono o condividilo con chi organizza con te.</p>
+   <h2 class="rv">Il listino in tasca. <span class="script">Gratis.</span></h2>
+   <p class="lead rv d1">Scarica il volantino di Dolce&amp;Salato: tavola calda, rustici e dolci mignon, tutte le pizze con i prezzi e il QR code per seguirci su Instagram. Salvalo sul telefono o giralo a chi organizza la festa con te.</p>
    <div class="flyer__actions rv d2">
     <a class="btn btn--gold" href="assets/docs/volantino-dolce-e-salato.pdf" download="Volantino-Dolce-e-Salato.pdf" data-download><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg> Scarica il volantino (PDF)</a>
     <a class="btn btn--line" href="assets/docs/volantino-dolce-e-salato.pdf" target="_blank" rel="noopener">Aprilo online</a>
@@ -234,25 +201,21 @@
  </div>
 </section>
 
-<section class="section section--brown" id="ordina">
- <div class="wrap" style="max-width:720px">
-  <div class="head"><span class="eyebrow rv">Ordina o prenota</span><h2 class="rv">Ordina o prenota <span class="script">in due minuti.</span></h2><p class="lead rv d1">Scrivi cosa ti serve e premi il bottone: si apre WhatsApp con il messaggio già pronto. Ti rispondiamo per confermare.</p></div>
-  <form class="form rv" id="order">
-   <label>Il tuo nome<input name="nome" autocomplete="given-name" enterkeyhint="next" required></label>
-   <label>Cosa ti serve?<select name="tipo"><option>Ritiro in negozio</option><option>Prenotazione evento</option><option>Torta su ordinazione</option></select></label>
-   <label>Ordine (es. 2 margherite a teglia, 1 kg di mignon)<textarea name="cosa" required></textarea></label>
-   <label>Per quale giorno? (facoltativo)<input type="date" name="quando" id="quando"></label>
-   <label>A che ora? (facoltativo)<input type="time" name="ora"></label>
-   <label>Note o allergie (facoltativo)<input name="note" enterkeyhint="send"></label>
-   <button class="btn btn--wa" type="submit"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Invia su WhatsApp</button>
-   <p class="hint">Non salviamo i tuoi dati: il messaggio parte dal tuo WhatsApp. Oppure chiama il <a href="tel:+393515571151" style="color:var(--gold)">351 5571151</a>.</p>
-  </form>
+<section class="section section--brown" id="storia">
+ <div class="wrap about">
+  <div class="rv"><div class="about__img"><img src="assets/img/foto/vetrina.webp" alt="Un panino con crema di pistacchio davanti all'ingresso di Dolce&amp;Salato a Mascalucia" width="386" height="440" loading="lazy"></div></div>
+  <div>
+   <span class="eyebrow rv">Chi siamo</span>
+   <h2 class="rv">Panificio, pasticceria e tavola calda <span class="script">sotto lo stesso tetto.</span></h2>
+   <p class="lead rv d1">Siamo in Via Tremestieri a Mascalucia. Al banco trovi pizza, arancini, cartocciate, rustici, torte e mignon; d'estate anche granite e gelati. Non sai cosa scegliere? Chiedi a noi, ti consigliamo volentieri.</p>
+   <dl class="facts rv d1"><div><dt>Dove</dt><dd>Via Tremestieri, 54 · Mascalucia (CT)</dd></div><div><dt>Orari</dt><dd>Lun–sab 6:30–21:30 · dom 6:30–13:30</dd></div><div><dt>Telefono</dt><dd><a href="tel:+393515571151">351 5571151</a> (anche WhatsApp)</dd></div><div><dt>Prezzi</dt><dd>Pizze da € 4,00 · tavola calda da € 0,80 · rustici mignon da € 12/kg · pasticceria mignon € 14/kg</dd></div></dl>
+  </div>
  </div>
 </section>
 
 <section class="section" id="dove">
  <div class="wrap">
-  <div class="head"><span class="eyebrow rv">Dove siamo</span><h2 class="rv">Dove siamo: Via Tremestieri 54, <span class="script">Mascalucia.</span></h2></div>
+  <div class="head"><span class="eyebrow rv">Dove siamo</span><h2 class="rv">Via Tremestieri 54, <span class="script">Mascalucia.</span></h2></div>
   <div class="where">
    <div class="info rv">
     <div class="info__row"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Indirizzo</b>Via Tremestieri, 54, 95030 Mascalucia (CT)</div></div>
@@ -279,17 +242,40 @@
  <div class="wrap">
   <div class="footer__grid">
    <div><h4>DOLCE&amp;SALATO · Panificio Pasticceria</h4><address style="font-style:normal">Via Tremestieri, 54, 95030 Mascalucia (CT)<br>Tel./WhatsApp <a href="tel:+393515571151">351 5571151</a></address><p style="margin-top:10px"><a href="https://www.instagram.com/panificio_dolceesalato54/" target="_blank" rel="noopener">Seguici su Instagram</a></p></div>
-   <div><h4>Il sito</h4><ul><li><a href="#menu">Menu e prezzi</a></li><li><a href="pizza-mascalucia/">Pizza a Mascalucia</a></li><li><a href="eventi-mignon-mascalucia/">Eventi e mignon</a></li><li><a href="#volantino">Volantino</a></li><li><a href="#dove">Dove siamo</a></li></ul></div>
+   <div><h4>Il sito</h4><ul><li><a href="#menu">Menu e ordini</a></li><li><a href="pizza-mascalucia/">Pizza a Mascalucia</a></li><li><a href="eventi-mignon-mascalucia/">Eventi e mignon</a></li><li><a href="#volantino">Volantino</a></li><li><a href="#dove">Dove siamo</a></li></ul></div>
    <div><h4>Contatti rapidi</h4><ul><li><a href="tel:+393515571151">Chiama</a></li><li><a href="https://wa.me/393515571151" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener">Indicazioni</a></li></ul></div>
   </div>
   <div class="legal"><span>© <span id="year">2026</span> Dolce&amp;Salato. Tutti i diritti riservati. [P.IVA da inserire]</span><span>I prezzi possono variare: fa fede il listino in negozio.</span></div>
  </div>
 </footer>
 
+<div class="cartbar" id="cartbar" hidden>
+ <button type="button" class="cartbar__btn" id="cart-open" aria-haspopup="dialog">
+  <span class="cartbar__count" id="cart-count" aria-hidden="true">0</span>
+  <span class="cartbar__txt"><b>Il tuo ordine</b><small id="cart-total">€ 0,00</small></span>
+  <span class="cartbar__go">Rivedi e invia →</span>
+ </button>
+</div>
+<dialog id="order-dialog" aria-labelledby="od-title">
+ <form id="order-form" method="dialog">
+  <div class="od__head"><h2 id="od-title">Il tuo ordine</h2><button type="button" class="od__x" id="od-close" aria-label="Chiudi">✕</button></div>
+  <ul class="od__lines" id="od-lines"></ul>
+  <p class="od__total">Totale stimato <b id="od-total">€ 0,00</b></p>
+  <p class="od__hint">I prezzi al kg e quelli «da» sono una stima: il conto esatto lo fai al ritiro.</p>
+  <label>Il tuo nome<input name="nome" required autocomplete="given-name" enterkeyhint="next"></label>
+  <label>Quando passi a ritirare?<input name="quando" placeholder="es. oggi alle 13:00" enterkeyhint="next"></label>
+  <label>Note, allergie, pizza in pala da comporre<input name="note" enterkeyhint="send"></label>
+  <button class="btn btn--wa btn--block" type="submit"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg> Invia su WhatsApp</button>
+  <button class="btn btn--line btn--block" type="button" id="od-clear">Svuota l'ordine</button>
+  <p class="od__hint" style="text-align:center">Si apre WhatsApp con il messaggio pronto. Non salviamo i tuoi dati.</p>
+ </form>
+</dialog>
+
 <nav class="bar" aria-label="Azioni rapide">
- <a class="main" href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Chiama</a>
+ <a class="main" href="#menu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20M7 8v3M12 8v3M17 8v3M7 4h.01M12 4h.01M17 4h.01"/></svg>Ordina</a>
+ <a href="tel:+393515571151"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Chiama</a>
  <a class="wa" href="https://wa.me/393515571151" target="_blank" rel="noopener"><svg class="ico fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.200l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100-1.400-.7-2.300-1.200-3.200-2.800-.2-.4.200-.4.700-1.300.1-.200 0-.300 0-.500l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.100-.7.300-.2.300-.9.900-.9 2.200s.9 2.500 1.100 2.700c.1.200 1.800 2.800 4.400 3.900 1.600.7 2.200.7 3 .6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
- <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Indicazioni</a>
+ <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Tremestieri+54+Mascalucia+CT" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Dove</a>
 </nav>
 
 <script src="assets/js/main.js" defer></script>

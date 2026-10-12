@@ -147,6 +147,87 @@
     });
   });
 
+
+  // ===== carrello ordine =====
+  var KEY = 'ds-cart-v1';
+  var cart = {};
+  try { cart = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { cart = {}; }
+  var euro = function (n) { return '€ ' + n.toFixed(2).replace('.', ','); };
+  var pizzaMode = function () { var m = $('.menu-pizze'); return m ? m.getAttribute('data-mode') : 'r'; };
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) { /* ignore */ } }
+  function qtyFmt(q, unit) { return unit === 'kg' ? (q + '').replace('.', ',') + ' kg' : q + ''; }
+  function describe(el) { // dati della riga in base al formato scelto
+    var id = el.dataset.id, name = el.dataset.name, price, unit = el.dataset.unit || 'pz', from = el.dataset.from === '1';
+    if (el.dataset.r) { var t = pizzaMode() === 't'; id += ':' + (t ? 't' : 'r'); name += t ? ' (teglia)' : ' (rotonda)'; price = parseFloat(el.dataset[t ? 't' : 'r']); }
+    else price = parseFloat(el.dataset.price);
+    return { id: id, name: name, price: price, unit: unit, from: from, step: unit === 'kg' ? 0.5 : 1 };
+  }
+  function setQty(d, q) {
+    q = Math.max(0, Math.round(q * 2) / 2);
+    if (q <= 0) delete cart[d.id]; else cart[d.id] = { name: d.name, price: d.price, unit: d.unit, from: d.from, step: d.step, qty: q };
+    save(); refresh();
+  }
+  function totals() {
+    var n = 0, tot = 0; Object.keys(cart).forEach(function (k) { n += 1; tot += cart[k].qty * cart[k].price; });
+    return { n: n, tot: tot };
+  }
+  function buyHTML(d, q) {
+    if (!q) return '<button type="button" class="add" aria-label="Aggiungi ' + d.name + '">+ Aggiungi</button>';
+    return '<span class="step" role="group" aria-label="Quantità ' + d.name + '"><button type="button" data-d="-1" aria-label="Meno">−</button><output>' + qtyFmt(q, d.unit) + '</output><button type="button" data-d="1" aria-label="Più">+</button></span>';
+  }
+  var rows = $$('[data-id]');
+  rows.forEach(function (el) {
+    el.classList.add('has-step'); if (el.tagName === 'LI' && !el.classList.contains('item')) el.classList.add('line');
+    var box = document.createElement('div'); box.className = 'buy'; el.appendChild(box);
+    box.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button'); if (!b) return;
+      var d = describe(el), cur = cart[d.id] ? cart[d.id].qty : 0;
+      setQty(d, b.classList.contains('add') ? d.step : cur + (+b.dataset.d) * d.step);
+    });
+  });
+  function refresh() {
+    rows.forEach(function (el) { var d = describe(el); el.querySelector('.buy').innerHTML = buyHTML(d, cart[d.id] ? cart[d.id].qty : 0); });
+    var t = totals(), bar = $('#cartbar');
+    if (!bar) return;
+    bar.hidden = t.n === 0;
+    $('#cart-count').textContent = t.n; $('#cart-total').textContent = 'Stima ' + euro(t.tot);
+    document.body.classList.toggle('has-cart', t.n > 0);
+    if (dlg && dlg.open) renderDialog();
+  }
+  var dlg = $('#order-dialog');
+  function renderDialog() {
+    var ul = $('#od-lines'), keys = Object.keys(cart);
+    if (!keys.length) { dlg.close(); return; }
+    ul.innerHTML = keys.map(function (k) {
+      var c = cart[k], from = c.from ? 'da ' : '';
+      return '<li data-k="' + k + '"><span class="nm">' + c.name + '</span><span class="pr">' + from + euro(c.qty * c.price) + '</span><span class="step"><button type="button" data-d="-1" aria-label="Meno ' + c.name + '">−</button><output>' + qtyFmt(c.qty, c.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + c.name + '">+</button></span></li>';
+    }).join('');
+    $('#od-total').textContent = euro(totals().tot);
+  }
+  if (dlg) {
+    $('#cart-open').addEventListener('click', function () { renderDialog(); if (Object.keys(cart).length) dlg.showModal(); });
+    $('#od-close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
+    $('#od-clear').addEventListener('click', function () { cart = {}; save(); refresh(); if (dlg.open) dlg.close(); });
+    $('#od-lines').addEventListener('click', function (ev) {
+      var b = ev.target.closest('button'); if (!b) return;
+      var k = b.closest('li').dataset.k, c = cart[k]; if (!c) return;
+      var q = c.qty + (+b.dataset.d) * c.step;
+      if (q <= 0) delete cart[k]; else c.qty = q;
+      save(); refresh(); renderDialog();
+    });
+    $('#order-form').addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var d = new FormData(ev.target), keys = Object.keys(cart);
+      var lines = keys.map(function (k) { var c = cart[k]; return '• ' + qtyFmt(c.qty, c.unit) + (c.unit === 'kg' ? ' di ' : ' × ') + c.name + ' (' + (c.from ? 'da ' : '') + euro(c.qty * c.price) + ')'; });
+      var msg = 'Ciao Dolce&Salato! Sono ' + d.get('nome') + ', vorrei ordinare:\n' + lines.join('\n') + '\nTotale stimato: ' + euro(totals().tot) +
+        '\nRitiro: ' + (d.get('quando') || 'da concordare') + (d.get('note') ? '\nNote: ' + d.get('note') : '') + '\nGrazie!';
+      window.open(wa(msg), '_blank', 'noopener');
+    });
+  }
+  document.addEventListener('click', function (ev) { if (ev.target.closest('.toggle button')) setTimeout(refresh, 0); });
+  refresh();
+
   // ===== aperto / chiuso ora =====
   if (HOURS) {
     var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
