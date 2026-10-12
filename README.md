@@ -13,3 +13,12 @@ Sito statico (HTML/CSS/JS, nessuna build), mobile-first. Pubblicabile così com'
 3. Verificare che 351 5571151 sia attivo su WhatsApp; inserire la P.IVA nel footer.
 4. Sostituire le foto con scatti reali del locale.
 5. Aprire/ottimizzare la scheda Google Business Profile con gli stessi dati (nome, indirizzo, telefono).
+
+## Vercel
+Sito statico: nessuna build. Impostazioni progetto: Framework "Other", Build Command vuoto, Output Directory `.` (root). `vercel.json` gestisce URL puliti, cache e header; `.vercelignore` esclude file di lavoro.
+- I push sul branch `claude/inspiring-dirac-khdl50` creano una **Preview Deployment** (URL nella dashboard Vercel o nei check del commit).
+- Per la produzione (branch `main`) serve il merge.
+- Quando il dominio è deciso: aggiornare l'indirizzo base (canonical, og:url, sitemap, robots, llms.txt) con un cerca-e-sostituisci su `https://agapasqualino07-eng.github.io/PanificioDolceSalato`.
+
+## Pagine
+- `/` home · `/pizza-mascalucia/` · `/eventi-mignon-mascalucia/` · `/prezzi.md` e `/llms.txt` (per AI) · `docs/google-business-profile.md` (guida scheda Google)
