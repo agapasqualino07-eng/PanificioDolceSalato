@@ -19,11 +19,13 @@
 
   // ===== drawer mobile =====
   var drawer = $('#drawer'), burger = $('#burger');
+  drawer.setAttribute('aria-hidden', 'true');
   function setDrawer(open) {
     drawer.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', open);
+    drawer.setAttribute('aria-hidden', !open);
     document.body.style.overflow = open ? 'hidden' : '';
-    if (open) { $('a, button', drawer).focus(); }
+    if (open) { $('a, button', drawer).focus(); } else { burger.focus({ preventScroll: true }); }
   }
   burger.addEventListener('click', function () { setDrawer(true); });
   $$('[data-close]', drawer).forEach(function (el) { el.addEventListener('click', function () { setDrawer(false); }); });
@@ -44,7 +46,7 @@
     var so = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
         if (e.isIntersecting) {
-          links.forEach(function (a) { a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id); });
+          links.forEach(function (a) { var on = a.getAttribute('href') === '#' + e.target.id; a.classList.toggle('is-active', on); if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
         }
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
@@ -149,10 +151,20 @@
   if (HOURS) {
     var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
     var toM = function (t) { var p = t.split(':'); return +p[0] * 60 + +p[1]; };
-    var open = (HOURS[day] || []).some(function (r) { return mins >= toM(r[0]) && mins < toM(r[1]); });
+    var cur = (HOURS[day] || []).filter(function (r) { return mins >= toM(r[0]) && mins < toM(r[1]); })[0];
+    var open = !!cur, label = 'Chiuso ora';
+    if (open) { label = 'Aperto ora · fino alle ' + cur[1].replace(/^0/, ''); }
+    else {
+      for (var i = 0; i < 7 && label === 'Chiuso ora'; i++) {
+        var d = (day + i) % 7, slots = HOURS[d] || [];
+        for (var k = 0; k < slots.length; k++) {
+          if (i > 0 || toM(slots[k][0]) > mins) { label = 'Chiuso · apre ' + (i === 0 ? 'oggi' : i === 1 ? 'domani' : 'tra ' + i + ' giorni') + ' alle ' + slots[k][0].replace(/^0/, ''); break; }
+        }
+      }
+    }
     var tr = $('.hours tr[data-day="' + day + '"]'); if (tr) tr.classList.add('today');
     var b = $('#open-badge');
-    if (b) { b.hidden = false; $('.dot', b).classList.toggle('on', open); $('span:last-child', b).textContent = open ? 'Aperto ora' : 'Chiuso ora'; }
+    if (b) { b.hidden = false; $('.dot', b).classList.toggle('on', open); $('span:last-child', b).textContent = label; }
   }
 
   $('#year').textContent = new Date().getFullYear();
