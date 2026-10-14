@@ -25,11 +25,12 @@
     burger.setAttribute('aria-expanded', open);
     drawer.setAttribute('aria-hidden', !open);
     document.body.style.overflow = open ? 'hidden' : '';
+    ['main', '.header', 'footer', '.bar', '#cartbar'].forEach(function (s) { $$(s).forEach(function (el) { el.inert = open; }); });
     if (open) { $('a, button', drawer).focus(); } else { burger.focus({ preventScroll: true }); }
   }
   burger.addEventListener('click', function () { setDrawer(true); });
   $$('[data-close]', drawer).forEach(function (el) { el.addEventListener('click', function () { setDrawer(false); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setDrawer(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false); });
 
   // ===== reveal on scroll =====
   var rv = $$('.rv');
@@ -82,13 +83,14 @@
   tabs.forEach(function (t, i) {
     t.addEventListener('click', function () { showTab(t.getAttribute('aria-controls')); t.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' }); });
     t.addEventListener('keydown', function (e) {
+      if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); showTab(tabs[e.key === 'Home' ? 0 : tabs.length - 1].getAttribute('aria-controls'), true); return; }
       var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
       if (d) { e.preventDefault(); showTab(tabs[(i + d + tabs.length) % tabs.length].getAttribute('aria-controls'), true); }
     });
   });
   // link "vedi menu" dalle card
   $$('[data-tab]').forEach(function (a) {
-    a.addEventListener('click', function () { showTab(a.getAttribute('data-tab')); });
+    a.addEventListener('click', function () { showTab(a.getAttribute('data-tab')); setTimeout(function () { var t = $('.tabs'); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 30); });
   });
 
   // ===== toggle rotonda / teglia =====
@@ -149,14 +151,20 @@
 
 
   // ===== carrello ordine =====
-  var KEY = 'ds-cart-v1';
-  var cart = {};
-  try { cart = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { cart = {}; }
+  var KEY = 'ds-cart-v1', LAST = 'ds-last-v1', PROF = 'ds-profile-v1';
+  function load(k, d) { try { return JSON.parse(localStorage.getItem(k) || 'null') || d; } catch (e) { return d; } }
+  function store(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+  var cart = load(KEY, {});
+  // eventi interni (ultimi 200 in localStorage) + gtag se presente; con ?debug=1 stampa in console
+  function track(name, props) {
+    var ev = load('ds-events', []); ev.push({ t: Date.now(), n: name, p: props || {} }); store('ds-events', ev.slice(-200));
+    if (window.gtag) window.gtag('event', name, props || {});
+    if (/[?&]debug=1/.test(location.search) && window.console) console.log('[track]', name, props || {});
+  }
   var euro = function (n) { return '€ ' + n.toFixed(2).replace('.', ','); };
   var pizzaMode = function () { var m = $('.menu-pizze'); return m ? m.getAttribute('data-mode') : 'r'; };
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(cart)); } catch (e) { /* ignore */ } }
   function qtyFmt(q, unit) { return unit === 'kg' ? (q + '').replace('.', ',') + ' kg' : q + ''; }
-  function describe(el) { // dati della riga in base al formato scelto
+  function describe(el) {
     var id = el.dataset.id, name = el.dataset.name, price, unit = el.dataset.unit || 'pz', from = el.dataset.from === '1';
     if (el.dataset.r) { var t = pizzaMode() === 't'; id += ':' + (t ? 't' : 'r'); name += t ? ' (teglia)' : ' (rotonda)'; price = parseFloat(el.dataset[t ? 't' : 'r']); }
     else price = parseFloat(el.dataset.price);
@@ -164,16 +172,28 @@
   }
   function setQty(d, q) {
     q = Math.max(0, Math.round(q * 2) / 2);
+    var before = cart[d.id] ? cart[d.id].qty : 0;
     if (q <= 0) delete cart[d.id]; else cart[d.id] = { name: d.name, price: d.price, unit: d.unit, from: d.from, step: d.step, qty: q };
-    save(); refresh();
+    if (q > before) { track('add_to_cart', { item: d.name }); bump(); }
+    store(KEY, cart); refresh();
   }
-  function totals() {
-    var n = 0, tot = 0; Object.keys(cart).forEach(function (k) { n += 1; tot += cart[k].qty * cart[k].price; });
-    return { n: n, tot: tot };
+  function totals() { var n = 0, tot = 0; Object.keys(cart).forEach(function (k) { n += 1; tot += cart[k].qty * cart[k].price; }); return { n: n, tot: tot }; }
+  function bump() { var c = $('#cart-count'); if (!c) return; c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
+  // dopo un re-render riporta il focus sul bottone che l'utente stava usando
+  function keepFocus(fn) {
+    var a = document.activeElement, row = a && a.closest && a.closest('[data-id],[data-k]');
+    var key = row && (row.dataset.k || describe(row).id), dir = a && a.dataset ? a.dataset.d : null, isAdd = a && a.classList && a.classList.contains('add');
+    fn();
+    if (!key) return;
+    var n = null; $$('[data-id],[data-k]').forEach(function (r) { if (!n && (r.dataset.k || describe(r).id) === key && r.offsetParent !== null) n = r; });
+    if (!n) return;
+    var t = (dir && n.querySelector('button[data-d="' + dir + '"]')) || n.querySelector('button.add, .step button');
+    if (isAdd && !dir) t = n.querySelector('.step button[data-d="1"]') || t;
+    if (t) t.focus({ preventScroll: true });
   }
   function buyHTML(d, q) {
     if (!q) return '<button type="button" class="add" aria-label="Aggiungi ' + d.name + '">+ Aggiungi</button>';
-    return '<span class="step" role="group" aria-label="Quantità ' + d.name + '"><button type="button" data-d="-1" aria-label="Meno">−</button><output>' + qtyFmt(q, d.unit) + '</output><button type="button" data-d="1" aria-label="Più">+</button></span>';
+    return '<span class="step" role="group" aria-label="Quantità ' + d.name + '"><button type="button" data-d="-1" aria-label="Meno ' + d.name + '">−</button><output>' + qtyFmt(q, d.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + d.name + '">+</button></span>';
   }
   var rows = $$('[data-id]');
   rows.forEach(function (el) {
@@ -185,47 +205,111 @@
       setQty(d, b.classList.contains('add') ? d.step : cur + (+b.dataset.d) * d.step);
     });
   });
-  function refresh() {
-    rows.forEach(function (el) { var d = describe(el); el.querySelector('.buy').innerHTML = buyHTML(d, cart[d.id] ? cart[d.id].qty : 0); });
-    var t = totals(), bar = $('#cartbar');
-    if (!bar) return;
-    bar.hidden = t.n === 0;
-    $('#cart-count').textContent = t.n; $('#cart-total').textContent = 'Stima ' + euro(t.tot);
-    document.body.classList.toggle('has-cart', t.n > 0);
-    if (dlg && dlg.open) renderDialog();
-  }
   var dlg = $('#order-dialog');
+  function refresh() {
+    keepFocus(function () {
+      rows.forEach(function (el) { var d = describe(el); el.querySelector('.buy').innerHTML = buyHTML(d, cart[d.id] ? cart[d.id].qty : 0); });
+      var t = totals(), bar = $('#cartbar');
+      if (bar) {
+        bar.hidden = t.n === 0;
+        $('#cart-count').textContent = t.n; $('#cart-total').textContent = 'Stima ' + euro(t.tot);
+        $('#cart-open').setAttribute('aria-label', 'Il tuo ordine: ' + t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ', stima ' + euro(t.tot) + '. Rivedi e invia');
+        var live = $('#cart-live'); if (live) live.textContent = t.n ? t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ' nell\'ordine, stima ' + euro(t.tot) : 'Ordine vuoto';
+      }
+      document.body.classList.toggle('has-cart', t.n > 0);
+      if (dlg && dlg.open) renderDialog();
+      renderReorder();
+    });
+  }
+  // suggerimenti "aggiungi anche": prezzi reali del listino, nessuno sconto
+  var CAT = {
+    pizzette: { id: 'tc-pizzette', name: 'Pizzette', price: 0.8, unit: 'pz', from: false, step: 1, qty: 2, label: '2 pizzette' },
+    mignon: { id: 'ps-pasticceria-mignon-di-nostra-produzione', name: 'Pasticceria mignon di nostra produzione', price: 14, unit: 'kg', from: false, step: 0.5, qty: 0.5, label: 'mezzo kg di pasticceria mignon' },
+    margherita: { id: 'pz-margherita:r', name: 'Margherita (rotonda)', price: 5, unit: 'pz', from: false, step: 1, qty: 1, label: 'una margherita rotonda, lattina inclusa' }
+  };
+  function suggestions() {
+    var k = Object.keys(cart), has = function (re) { return k.some(function (x) { return re.test(x); }); }, out = [];
+    if (has(/^pz-/) && !cart[CAT.pizzette.id]) out.push('pizzette');
+    if (has(/^(pz|tc|rk|cz|pala)/) && !has(/^ps-/)) out.push('mignon');
+    if (!has(/^pz-/)) out.push('margherita');
+    return out.slice(0, 2);
+  }
+  function drinkNote(k) { return /^pz-.*:r$/.test(k) ? 'Con la rotonda: lattina da 15 cl inclusa' : /^pz-.*:t$/.test(k) ? 'Con la teglia: bibita Tomarchio in bottiglia inclusa' : ''; }
   function renderDialog() {
     var ul = $('#od-lines'), keys = Object.keys(cart);
     if (!keys.length) { dlg.close(); return; }
     ul.innerHTML = keys.map(function (k) {
-      var c = cart[k], from = c.from ? 'da ' : '';
-      return '<li data-k="' + k + '"><span class="nm">' + c.name + '</span><span class="pr">' + from + euro(c.qty * c.price) + '</span><span class="step"><button type="button" data-d="-1" aria-label="Meno ' + c.name + '">−</button><output>' + qtyFmt(c.qty, c.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + c.name + '">+</button></span></li>';
+      var c = cart[k], from = c.from ? 'da ' : '', note = drinkNote(k);
+      return '<li data-k="' + k + '"><span class="nm">' + c.name + (note ? '<small>' + note + '</small>' : '') + '</span><span class="pr">' + from + euro(c.qty * c.price) + '</span><span class="step" role="group" aria-label="Quantità ' + c.name + '"><button type="button" data-d="-1" aria-label="Meno ' + c.name + '">−</button><output>' + qtyFmt(c.qty, c.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + c.name + '">+</button></span></li>';
     }).join('');
     $('#od-total').textContent = euro(totals().tot);
+    var sg = suggestions(), box = $('#od-sugg');
+    box.hidden = !sg.length;
+    box.innerHTML = sg.length ? '<p>Aggiungi anche</p>' + sg.map(function (s) { var c = CAT[s]; return '<button type="button" class="sugg" data-s="' + s + '">+ ' + c.label + ' · ' + euro(c.qty * c.price) + '</button>'; }).join('') : '';
   }
+  function openDialog() {
+    if (!dlg || !Object.keys(cart).length) return;
+    var p = load(PROF, {}); var n = $('#order-form input[name=nome]'); if (n && !n.value && p.nome) n.value = p.nome;
+    renderDialog(); if (!dlg.open) dlg.showModal(); track('cart_open', { items: totals().n });
+  }
+  function renderReorder() {
+    var box = $('#reorder'); if (!box) return;
+    var last = load(LAST, null), empty = !Object.keys(cart).length;
+    if (!last || !empty) { box.hidden = true; return; }
+    var n = Object.keys(last).length; box.hidden = false;
+    box.innerHTML = '<button type="button" class="btn btn--line" id="reorder-btn">Rifai l\'ultimo ordine (' + n + (n === 1 ? ' prodotto' : ' prodotti') + ')</button>';
+  }
+  function reorder() {
+    var last = load(LAST, {}), added = 0;
+    Object.keys(last).forEach(function (k) {
+      var base = k.split(':')[0], el = $('[data-id="' + base + '"]'); if (!el) return;
+      var t = /:t$/.test(k), price = el.dataset.r ? parseFloat(el.dataset[t ? 't' : 'r']) : parseFloat(el.dataset.price);
+      cart[k] = { name: last[k].name, price: price, unit: last[k].unit, from: el.dataset.from === '1', step: last[k].step, qty: last[k].qty }; added++;
+    });
+    if (added) { track('reorder', { items: added }); store(KEY, cart); refresh(); openDialog(); }
+  }
+  document.addEventListener('click', function (ev) {
+    var b = ev.target.closest('#reorder-btn'); if (b) { reorder(); return; }
+    if (ev.target.closest('.toggle button')) setTimeout(refresh, 0);
+  });
   if (dlg) {
-    $('#cart-open').addEventListener('click', function () { renderDialog(); if (Object.keys(cart).length) dlg.showModal(); });
+    $('#cart-open').addEventListener('click', openDialog);
     $('#od-close').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (ev) { if (ev.target === dlg) dlg.close(); });
-    $('#od-clear').addEventListener('click', function () { cart = {}; save(); refresh(); if (dlg.open) dlg.close(); });
+    $('#od-clear').addEventListener('click', function () { cart = {}; store(KEY, cart); refresh(); if (dlg.open) dlg.close(); });
     $('#od-lines').addEventListener('click', function (ev) {
       var b = ev.target.closest('button'); if (!b) return;
       var k = b.closest('li').dataset.k, c = cart[k]; if (!c) return;
       var q = c.qty + (+b.dataset.d) * c.step;
       if (q <= 0) delete cart[k]; else c.qty = q;
-      save(); refresh(); renderDialog();
+      store(KEY, cart); refresh();
     });
+    $('#od-sugg').addEventListener('click', function (ev) {
+      var b = ev.target.closest('button[data-s]'); if (!b) return;
+      var c = CAT[b.dataset.s]; track('suggest_click', { item: c.name });
+      setQty({ id: c.id, name: c.name, price: c.price, unit: c.unit, from: c.from, step: c.step }, (cart[c.id] ? cart[c.id].qty : 0) + c.qty);
+    });
+    $$('.chipq', dlg).forEach(function (c) { c.addEventListener('click', function () { $('#order-form input[name=quando]').value = c.textContent; }); });
     $('#order-form').addEventListener('submit', function (ev) {
       ev.preventDefault();
       var d = new FormData(ev.target), keys = Object.keys(cart);
       var lines = keys.map(function (k) { var c = cart[k]; return '• ' + qtyFmt(c.qty, c.unit) + (c.unit === 'kg' ? ' di ' : ' × ') + c.name + ' (' + (c.from ? 'da ' : '') + euro(c.qty * c.price) + ')'; });
       var msg = 'Ciao Dolce&Salato! Sono ' + d.get('nome') + ', vorrei ordinare:\n' + lines.join('\n') + '\nTotale stimato: ' + euro(totals().tot) +
         '\nRitiro: ' + (d.get('quando') || 'da concordare') + (d.get('note') ? '\nNote: ' + d.get('note') : '') + '\nGrazie!';
-      window.open(wa(msg), '_blank', 'noopener');
+      store(PROF, { nome: d.get('nome') }); store(LAST, cart); track('wa_submit', { items: keys.length, total: Math.round(totals().tot * 100) / 100 });
+      var url = wa(msg), a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
+      var s = $('#od-status'); s.innerHTML = 'Si è aperto WhatsApp con il messaggio già scritto. Non è partito? <a href="' + url + '" target="_blank" rel="noopener">Riprova</a> oppure chiama il 351 5571151.';
     });
   }
-  document.addEventListener('click', function (ev) { if (ev.target.closest('.toggle button')) setTimeout(refresh, 0); });
+  // preset dal calcolatore feste
+  var calcBtn = $('#calc-cart');
+  if (calcBtn) calcBtn.addEventListener('click', function () {
+    var r = $('#kg-s').textContent, dd = $('#kg-d').textContent;
+    var s = parseFloat(r.replace(',', '.')), d = parseFloat(dd.replace(',', '.'));
+    setQty({ id: 'rk-rustici-classici-vari-tipi', name: 'Rustici classici, vari tipi', price: 12, unit: 'kg', from: true, step: 0.5 }, s);
+    setQty({ id: 'ps-pasticceria-mignon-di-nostra-produzione', name: 'Pasticceria mignon di nostra produzione', price: 14, unit: 'kg', from: false, step: 0.5 }, d);
+    track('preset_apply', { rustici: s, dolci: d }); openDialog();
+  });
   refresh();
 
   // ===== aperto / chiuso ora =====

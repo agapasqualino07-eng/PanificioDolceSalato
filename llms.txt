@@ -9,9 +9,13 @@ Aperti tutti i giorni con orario continuato: lunedì–sabato 6:30–21:30, dome
 - [Pizza a Mascalucia: tutte le pizze, i calzoni e i prezzi](https://agapasqualino07-eng.github.io/PanificioDolceSalato/pizza-mascalucia/)
 - [Rusticheria e pasticceria mignon per eventi](https://agapasqualino07-eng.github.io/PanificioDolceSalato/eventi-mignon-mascalucia/)
 - [Listino completo in testo semplice](https://agapasqualino07-eng.github.io/PanificioDolceSalato/prezzi.md)
-- [Volantino con il listino (PDF)](https://agapasqualino07-eng.github.io/PanificioDolceSalato/assets/docs/volantino-dolce-e-salato.pdf)
 
 ## Contatti
 - Indirizzo: Via Tremestieri 54, 95030 Mascalucia (CT)
 - Telefono / WhatsApp: +39 351 5571151
 - Instagram: https://www.instagram.com/panificio_dolceesalato54/
+
+## Optional
+- [Volantino con il listino (PDF, immagini)](https://agapasqualino07-eng.github.io/PanificioDolceSalato/assets/docs/volantino-dolce-e-salato.pdf)
+
+Aggiornato il 14 ottobre 2026.

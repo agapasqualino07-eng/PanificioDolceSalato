@@ -1,5 +1,7 @@
 # Listino Dolce&Salato – Panificio Pasticceria, Mascalucia
 
+Aggiornato il 14 ottobre 2026.
+
 Via Tremestieri 54, Mascalucia (CT) · Tel./WhatsApp 351 5571151 · Lun–sab 6:30–21:30, dom 6:30–13:30
 
 Prezzi in euro, tratti dal volantino del panificio. Possono variare: fa fede il listino in negozio.
@@ -45,20 +47,24 @@ Impasti con farine speciali (integrale, kamut, 5 cereali, grano saraceno) solo s
 
 ## Tavola calda (pezzi medi)
 
-- € 0,80: Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci); Pizzette; Bombe al forno classiche
-- € 0,90: Cipollina; Patè; Arancini burro e ragù; Cartocciate (pistacchio, porcini, friarielli)
-- € 1,00: Arancini al pistacchio; Cartocciate al salmone e philadelphia; Bombe fritte vari gusti
+- € 0,80 al pezzo: Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci); Pizzette; Bombe al forno classiche
+- € 0,90 al pezzo: Cipollina; Patè; Arancini burro e ragù; Cartocciate (pistacchio, porcini, friarielli)
+- € 1,00 al pezzo: Arancini al pistacchio; Cartocciate al salmone e philadelphia; Bombe fritte vari gusti
 
 ## Rusticheria mignon (al kg)
 
 - Focacce a mini porzioni, vari tipi: € da 12,00 al kg
+- Mini hot dog (wurstel, patatine, tomato e maionese): € 12,00 al kg
+- Pizza secca, vari tipi: € 12,00 al kg
 - Rustici classici, vari tipi: € 12,00 al kg
 - Arancinetti burro o ragù: € 14,00 al kg
-- Arancinetti al pistacchio: € 18,00 al kg
+- Mini hamburger (polpettine di carne, maionese, insalata e pomodoro a fette): € 16,00 al kg
+- Rustici di sfoglia, vari tipi: € 16,00 al kg
+- Mini burger con cotoletta e patatine: € 16,00 al kg
 - Mini cornetti salati con crudo, philadelphia e rucola: € 16,00 al kg
-- Mini cornetti salati con salmone, philadelphia e rucola: € 16,00 al kg
+- Arancinetti al pistacchio: € 18,00 al kg
+- Mini cornetti salati con salmone, philadelphia e rucola: € 18,00 al kg
 - Mini mafaldine con pesto di pistacchio, mortadella e polvere di pistacchio: € 18,00 al kg
-- Anche mignon (prezzo su richiesta): Mini hot dog (wurstel, patatine, tomato e maionese); Pizza secca, vari tipi; Mini hamburger (polpettine di carne, maionese, insalata e pomodoro a fette); Rustici di sfoglia, vari tipi; Mini burger con cotoletta e patatine
 
 ## Pasticceria (al kg)
 

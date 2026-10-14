@@ -1,3 +1,5 @@
+@font-face{font-family:'Playfair Fallback';src:local('Georgia');size-adjust:104%;ascent-override:92%;descent-override:24%;line-gap-override:0%}
+@font-face{font-family:'Outfit Fallback';src:local('Arial');size-adjust:101%;ascent-override:100%;descent-override:26%}
 /* Dolce&Salato — Panificio Pasticceria · Mascalucia
    Palette: nero + marrone scuro, oro del logo come unico accento */
 :root{
@@ -13,8 +15,8 @@
   --cream-dim:#c9b99f;
   --wa:#25d366;
   --radius:18px;
-  --font-display:'Playfair Display',Georgia,serif;
-  --font-body:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Playfair Display','Playfair Fallback',Georgia,serif;
+  --font-body:'Outfit','Outfit Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
   --ease:cubic-bezier(.2,.7,.2,1);
   --bar-h:68px;
 }
@@ -59,7 +61,7 @@ h3{font-size:1.35rem}
 
 /* ---------- header ---------- */
 .header{position:fixed;inset:0 0 auto 0;z-index:90;padding:14px 0;transition:background .3s,backdrop-filter .3s,padding .3s}
-.header.is-stuck{background:rgba(11,7,5,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:8px 0;box-shadow:0 1px 0 rgba(210,154,42,.18)}
+.header.is-stuck{background:rgba(11,7,5,.94);padding:8px 0;box-shadow:0 1px 0 rgba(210,154,42,.18)}
 .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .brand{display:flex;flex-direction:column;line-height:1}
 .brand b{font-family:var(--font-display);font-size:1.25rem;letter-spacing:.04em}
@@ -92,7 +94,7 @@ h3{font-size:1.35rem}
 @keyframes grow{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:none}}
 .hero__cta{display:grid;gap:12px;width:min(380px,100%)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:30px}
-.chip{display:inline-flex;align-items:center;gap:.5em;padding:.45em 1em;border-radius:999px;font-size:.85rem;background:rgba(11,7,5,.6);border:1px solid rgba(210,154,42,.35);backdrop-filter:blur(6px)}
+.chip{display:inline-flex;align-items:center;gap:.5em;padding:.45em 1em;border-radius:999px;font-size:.85rem;background:rgba(11,7,5,.78);border:1px solid rgba(210,154,42,.35)}
 .dot{width:9px;height:9px;border-radius:50%;background:#7a6a58}
 .dot.on{background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.2)}
 .scroll-hint{position:absolute;bottom:18px;left:50%;translate:-50% 0;width:26px;height:42px;border:2px solid rgba(243,230,207,.4);border-radius:14px;display:none}
@@ -220,7 +222,7 @@ h3{font-size:1.35rem}
 .legal{border-top:1px solid rgba(243,230,207,.1);padding-top:20px;font-size:.82rem;display:flex;flex-direction:column;gap:6px}
 
 /* ---------- barra azioni mobile ---------- */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(11,7,5,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(210,154,42,.3)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(11,7,5,.97);border-top:1px solid rgba(210,154,42,.3)}
 .bar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;border-radius:14px;font-size:.78rem;font-weight:600;background:rgba(243,230,207,.07)}
 .bar a.main{background:var(--gold);color:var(--black)}
 .bar a.wa{background:var(--wa);color:#06260f}
@@ -346,7 +348,7 @@ li.has-step.line{display:flex;justify-content:space-between;align-items:center;g
 .buy{display:inline-flex;align-items:center;gap:6px}
 .add{min-height:44px;padding:0 1.15em;border-radius:999px;border:1.5px solid var(--gold);color:var(--gold);font-weight:600;font-size:.95rem;transition:background .2s,color .2s}
 .add:hover,.add:focus-visible{background:var(--gold);color:var(--black)}
-.step{display:inline-flex;align-items:center;background:var(--gold);color:var(--black);border-radius:999px;overflow:hidden}
+.step{display:inline-flex;align-items:center;background:var(--gold);color:var(--black);border-radius:999px}
 .step button{width:44px;height:44px;font-size:1.35rem;font-weight:600;line-height:1}
 .step button:active{background:rgba(0,0,0,.15)}
 .step output{min-width:3.2em;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
@@ -393,3 +395,35 @@ dialog#order-dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(3p
 .tabs{top:62px}
 
 .pov{margin-top:18px;font-family:var(--font-display);font-style:italic;font-size:1.25rem;color:var(--gold-soft)}
+
+/* ===== v3: correzioni audit ===== */
+@media (min-width:768px){.header.is-stuck{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}}
+.step button{border-radius:50%}
+.step button:focus-visible{outline:3px solid var(--cream);outline-offset:-4px;background:rgba(0,0,0,.18)}
+.cartbar__btn:focus-visible{outline-color:var(--cream);outline-offset:-5px}
+html{scroll-padding-top:80px;scroll-padding-bottom:calc(var(--bar-h) + 90px)}
+body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bottom))}
+@media (min-width:980px){body.has-cart{padding-bottom:90px}}
+#order-form input,.calc select{border-color:rgba(243,230,207,.55)}
+#order-form input:focus-visible,.calc select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tab{border-color:rgba(243,230,207,.5);transition:background .25s,color .25s,border-color .25s}
+.footer a,.drawer nav a,.info__row a{display:inline-flex;align-items:center;min-height:44px}
+.footer li{padding:0}
+.brand{min-height:44px;justify-content:center}
+.calc input[type=range]{height:44px}
+.footer h3{font-family:var(--font-display);color:var(--cream);margin-bottom:10px;font-size:1.1rem}
+.mosaic{contain:layout paint}
+.mosaic__row{will-change:transform}
+.page-photo{width:min(320px,70%);aspect-ratio:386/440;object-fit:cover;border-radius:var(--radius);margin-top:22px;border:1px solid rgba(243,230,207,.12)}
+@media (min-width:980px){.page-hero{display:grid;grid-template-columns:1.4fr 1fr;column-gap:48px;align-items:start}.page-hero .page-photo{grid-column:2;grid-row:1/span 4;margin-top:0;width:100%}.page-hero>*{grid-column:1}}
+/* ordine: suggerimenti, orari rapidi, riordino */
+.od__lines .nm small{display:block;font-weight:400;color:var(--cream-dim);font-size:.82rem}
+.od__sugg{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.od__sugg p{width:100%;font-weight:600;font-size:.95rem}
+.sugg,.chipq{min-height:44px;padding:0 1em;border-radius:999px;border:1.5px solid rgba(210,154,42,.7);color:var(--gold);font-weight:600;font-size:.9rem}
+.sugg:hover,.chipq:hover{background:var(--gold);color:var(--black)}
+.chipsq{display:flex;flex-wrap:wrap;gap:8px;margin-top:-4px}
+.reorder{margin:0 0 18px}
+.reorder[hidden]{display:none}
+#cart-count.bump{animation:bump .4s var(--ease)}
+@keyframes bump{40%{transform:scale(1.35)}}
