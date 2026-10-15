@@ -427,3 +427,8 @@ body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bott
 .reorder[hidden]{display:none}
 #cart-count.bump{animation:bump .4s var(--ease)}
 @keyframes bump{40%{transform:scale(1.35)}}
+/* hero: logo con le due spighe */
+.hero-logo{width:min(330px,76vw);height:auto;margin:6px 0 4px;filter:drop-shadow(0 6px 28px rgba(0,0,0,.8))}
+.hero h1{margin-top:6px;margin-bottom:26px}
+@media (min-width:980px){.hero-logo{width:380px}}
+@media (min-width:980px){.hero h1{max-width:13ch}}
