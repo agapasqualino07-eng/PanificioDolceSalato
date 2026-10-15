@@ -222,7 +222,7 @@
   var dlg = $('#order-dialog');
   function refresh() {
     keepFocus(function () {
-      rows.forEach(function (el) { var d = describe(el); el.querySelector('.buy').innerHTML = buyHTML(d, cart[d.id] ? cart[d.id].qty : 0); });
+      rows.forEach(function (el) { var d = describe(el), q = cart[d.id] ? cart[d.id].qty : 0, box = el.querySelector('.buy'); box.innerHTML = buyHTML(d, q); box.classList.toggle('on', q > 0); });
       var t = totals(), bar = $('#cartbar');
       if (bar) {
         bar.hidden = t.n === 0;

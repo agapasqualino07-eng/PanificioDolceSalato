@@ -550,3 +550,52 @@ h2{font-size:clamp(1.8rem,6vw,2.6rem)}
   .info{gap:12px}
   .where{align-items:start}
 }
+
+/* ===== v5: mobile più compatto ===== */
+@media (max-width:979px){
+  /* voci menu: nome a sinistra, prezzo e "+" a destra */
+  .item.has-step{grid-template-columns:1fr auto auto;align-items:center;column-gap:10px;padding:9px 0}
+  .item.has-step .price{grid-column:2;grid-row:1/span 2;font-size:1.15rem}
+  .item.has-step .buy{grid-column:3;grid-row:1/span 2;justify-self:end;margin-top:0}
+  .item.has-step .buy.on{grid-column:1/-1;grid-row:auto;margin-top:6px}
+  .item.has-step .buy .add{width:44px;height:44px;padding:0;font-size:0;border-radius:50%}
+  .item.has-step .buy .add::before{content:"+";font-size:1.6rem;line-height:1;font-weight:500}
+  .item p{font-size:.84rem;line-height:1.35}
+  .item h3{font-size:1rem}
+  li.has-step.line{padding:8px 0}
+  /* riquadri "Cosa ti va oggi" */
+  .intents{gap:10px}
+  .intent,.intent:nth-child(n){aspect-ratio:1/1.02}
+  .intent:nth-child(5){aspect-ratio:21/9}
+  .intent__txt{padding:11px}
+  .intent__txt b{font-size:1.1rem}
+  .intent__txt span{font-size:.8rem;line-height:1.25}
+  .intent__txt em{font-size:.8rem}
+  /* specialità */
+  .mese__ph>img{max-height:260px}
+  .mese__thumbs img{aspect-ratio:16/9}
+  .mese__txt{padding:16px}
+  .mese__txt h3{font-size:1.5rem}
+  .spec__item{flex-basis:70vw}
+  .spec__item img{aspect-ratio:4/3}
+  /* altre sezioni */
+  .shot{flex-basis:56vw;aspect-ratio:1}
+  .flyer__imgs{height:min(62vw,240px)}
+  .flyer{gap:22px}
+  .about__img{aspect-ratio:16/10;max-width:none}
+  .about{gap:22px}
+  .values{display:none}
+  .map,.map iframe{min-height:230px}
+  .where{gap:20px}
+  .calc{padding:18px}
+  .calc__res{margin:14px 0;padding:14px}
+  .events{gap:22px}
+  .steps{gap:10px;margin-top:16px}
+  .footer{padding:36px 0 20px}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:18px 14px;margin-bottom:20px}
+  .footer__grid>div:first-child{grid-column:1/-1}
+  .footer li{padding:0}
+  .footer a{min-height:40px}
+  .faq summary{font-size:1.05rem;padding:12px 0}
+  .tabs{padding-bottom:10px}
+}
