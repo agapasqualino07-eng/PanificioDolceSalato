@@ -496,3 +496,57 @@ body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bott
 .mese__thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 6px}
 .mese__thumbs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
 @media (min-width:720px){.mese{grid-template-columns:1fr 1fr}.mese__ph>img{max-height:none;height:100%;min-height:360px;aspect-ratio:auto}.mese__ph{height:100%}}
+
+/* ===== v4: sezioni più compatte ===== */
+.section{padding:clamp(44px,8vw,72px) 0}
+.head{margin-bottom:clamp(20px,3.5vw,32px)}
+h2{font-size:clamp(1.8rem,6vw,2.6rem)}
+.lead{font-size:1.05rem}
+.item{padding:10px 0}
+.item h3{font-size:1.05rem}
+.faq summary{padding:13px 0;font-size:1.1rem}
+.faq details p{padding-bottom:14px}
+.note{margin-top:14px;padding:12px 16px}
+.tier{margin-bottom:16px}
+@media (min-width:980px){
+  /* specialità: scheda del mese orizzontale e bassa */
+  .mese{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);max-height:360px}
+  .mese__ph{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:4px;height:360px;padding:4px;background:var(--black)}
+  .mese__ph>img{grid-row:1/span 2;height:100%!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;border-radius:12px}
+  .mese__thumbs{display:contents}
+  .mese__thumbs li{min-height:0}
+  .mese__thumbs img{height:100%;aspect-ratio:auto;border-radius:12px}
+  .mese__thumbs li:nth-child(n+3){display:none}
+  .mese__txt{padding:28px}
+  .spec__item img{aspect-ratio:4/3}
+  .spec__body{padding:14px}
+  .spec__body p{font-size:.9rem}
+  /* galleria: 6 colonne quadrate */
+  .gallery{grid-template-columns:repeat(6,1fr);gap:10px}
+  .shot{aspect-ratio:1}
+  /* chi siamo */
+  .about__img{aspect-ratio:4/3;max-width:none}
+  /* menu a due colonne più fitte */
+  .menu-list.cols{column-gap:44px}
+  .intent{aspect-ratio:1/1.05}
+  .flyer__imgs{height:340px}
+  .where{gap:36px}
+  .map,.map iframe{min-height:300px}
+}
+@media (min-width:980px){.about,.events,.flyer,.where{gap:44px}}
+@media (min-width:980px){
+  /* voci del menu: prezzo e Aggiungi sulla stessa riga */
+  .item.has-step{grid-template-columns:1fr auto auto;align-items:center;column-gap:14px}
+  .item.has-step .price{grid-column:2;grid-row:1/span 2}
+  .item.has-step .buy{grid-column:3;grid-row:1/span 2;grid-column-end:4;justify-self:end;margin-top:0}
+  .item.has-step .buy .add{padding:0 .9em;font-size:.9rem}
+  .item p{font-size:.86rem;line-height:1.35}
+  /* specialità: schede in 3 colonne, immagini basse */
+  .spec{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1120px}
+  .spec__item img{aspect-ratio:16/9}
+  .spec__body h3{font-size:1.1rem}
+  /* altre sezioni */
+  .faq summary{padding:11px 0}
+  .info{gap:12px}
+  .where{align-items:start}
+}
