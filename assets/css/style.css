@@ -450,3 +450,27 @@ body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bott
   .hero{height:100svh;min-height:540px;grid-template-rows:minmax(0,1fr)}
   .mosaic{position:relative;height:100%}
 }
+/* ===== 5 riquadri "Cosa ti va oggi?" ===== */
+.intents{grid-template-columns:1fr 1fr}
+.intent:nth-child(5){grid-column:1/-1;aspect-ratio:16/9}
+@media (min-width:720px){
+  .intents{grid-template-columns:repeat(6,1fr)}
+  .intent{grid-column:span 2;aspect-ratio:4/5}
+  .intent:nth-child(4),.intent:nth-child(5){grid-column:span 3;aspect-ratio:16/10}
+}
+@media (min-width:980px){
+  .intents{grid-template-columns:repeat(5,1fr)}
+  .intent,.intent:nth-child(4),.intent:nth-child(5){grid-column:auto;aspect-ratio:4/5}
+}
+/* ===== le nostre specialità ===== */
+.spec{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 14px;scrollbar-width:none}
+.spec::-webkit-scrollbar{display:none}
+.spec__item{position:relative;flex:0 0 78vw;max-width:320px;scroll-snap-align:center;border-radius:var(--radius);overflow:hidden;background:var(--brown-800);border:1px solid rgba(243,230,207,.1);display:flex;flex-direction:column}
+.spec__item img{width:100%;aspect-ratio:386/440;object-fit:cover}
+.spec__body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.spec__body h3{font-size:1.25rem}
+.spec__body p{color:var(--cream-dim);font-size:.95rem}
+.spec__price{color:var(--gold);font-weight:600}
+.spec__body .btn{margin-top:auto;padding-top:.7em;padding-bottom:.7em}
+.spec__badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:var(--black);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.35em .8em;border-radius:999px}
+@media (min-width:980px){.spec{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;width:min(1120px,100% - 40px);margin-inline:auto;padding:0}.spec__item{max-width:none}}

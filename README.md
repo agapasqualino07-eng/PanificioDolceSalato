@@ -25,3 +25,6 @@ Sito statico: nessuna build. Impostazioni progetto: Framework "Other", Build Com
 
 ## Audit del 14/10/2026
 Eseguito con 7 agenti (SEO locale, copy, UX/accessibilità, coerenza dati, schema/AI-SEO, piano conversione, prestazioni). Corretto anche il listino rusticheria in base ai raggruppamenti del volantino (mini hamburger, rustici di sfoglia, mini burger e cornetti con crudo a € 16/kg; cornetti al salmone e mafaldine a € 18/kg; mini hot dog e pizza secca a € 12/kg): da confermare con il titolare.
+
+## Le nostre specialità (come aggiornarle)
+La sezione legge `content/specialita.json`: per ogni specialità c'è `foto`, `nome`, `desc`, `prezzo` (facoltativo) e `novita` (true mostra il badge "Novità"). Quando arrivano foto nuove: metti la foto in `assets/img/specialita/` (4:5, circa 400x450 px, WebP), aggiorna il JSON e rigenera le pagine con lo script di build.

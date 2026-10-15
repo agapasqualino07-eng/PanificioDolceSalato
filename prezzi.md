@@ -1,10 +1,10 @@
 # Listino Dolce&Salato – Panificio Pasticceria, Mascalucia
 
-Aggiornato il 14 ottobre 2026.
+Aggiornato il 15 ottobre 2026.
 
 Via Tremestieri 54, Mascalucia (CT) · Tel./WhatsApp 351 5571151 · Lun–sab 6:30–21:30, dom 6:30–13:30
 
-Prezzi in euro, tratti dal volantino del panificio. Possono variare: fa fede il listino in negozio.
+Prezzi in euro. Possono variare: fa fede il listino in negozio.
 
 ## Pizze (rotonda / teglia)
 
@@ -31,7 +31,7 @@ Prezzi in euro, tratti dal volantino del panificio. Possono variare: fa fede il 
 
 Supplementi: € 0,50 per pizza rotonda, € 1,50 per pizza a teglia.
 Con ogni pizza rotonda una lattina da 15 cl; con ogni pizza a teglia una bibita Tomarchio in bottiglia; con ogni mezza teglia una lattina da 33 cl.
-Impasti con farine speciali (integrale, kamut, 5 cereali, grano saraceno) solo su prenotazione 24 ore prima.
+Impasti con farine speciali (integrale, kamut, 9 cereali, grano saraceno, timilia, segale) solo su prenotazione 24 ore prima.
 
 ## Calzoni
 
@@ -45,11 +45,12 @@ Impasti con farine speciali (integrale, kamut, 5 cereali, grano saraceno) solo s
 - Pizza in pala: da € 8,00 (pizza rotonda trasformata in pala o composta a tuo gusto)
 - Pane condito: da € 8,00 (composto a tuo gusto)
 
-## Tavola calda (pezzi medi)
+## Tavola calda (pezzi medi) e panini imbottiti
 
 - € 0,80 al pezzo: Cartocciate (semplici, wurstel e patatine, melanzane, uovo, spinaci); Pizzette; Bombe al forno classiche
 - € 0,90 al pezzo: Cipollina; Patè; Arancini burro e ragù; Cartocciate (pistacchio, porcini, friarielli)
 - € 1,00 al pezzo: Arancini al pistacchio; Cartocciate al salmone e philadelphia; Bombe fritte vari gusti
+- Panini imbottiti: ripieno a scelta al banco
 
 ## Rusticheria mignon (al kg)
 
@@ -70,6 +71,11 @@ Impasti con farine speciali (integrale, kamut, 5 cereali, grano saraceno) solo s
 
 - Pasticceria mignon di nostra produzione: € 14,00
 - Torte classiche: da € 15,00
-- Semifreddi: da € 17,00
+- Semifreddi: da € 18,00
 
 Nel periodo estivo: granite e gelati di nostra produzione.
+
+## Pane e stuzzicheria
+
+- Pane: da € 4,00 al kg
+- Stuzzicheria: gusti e prezzo su richiesta
