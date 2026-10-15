@@ -21,7 +21,7 @@ Sito statico: nessuna build. Impostazioni progetto: Framework "Other", Build Com
 - Quando il dominio è deciso: aggiornare l'indirizzo base (canonical, og:url, sitemap, robots, llms.txt) con un cerca-e-sostituisci su `https://agapasqualino07-eng.github.io/PanificioDolceSalato`.
 
 ## Pagine
-- `/` home · `/pizza-mascalucia/` · `/eventi-mignon-mascalucia/` · `/prezzi.md` e `/llms.txt` (per AI) · `docs/google-business-profile.md` (guida scheda Google)
+- `/` home · `/pizza-mascalucia/` · `/catering-rustici-mascalucia/` · `/torte-su-ordinazione-mascalucia/` · `/colazione-mascalucia/` · `/prezzi.md` e `/llms.txt` (per AI) · `docs/google-business-profile.md` (guida scheda Google)
 
 ## Audit del 14/10/2026
 Eseguito con 7 agenti (SEO locale, copy, UX/accessibilità, coerenza dati, schema/AI-SEO, piano conversione, prestazioni). Corretto anche il listino rusticheria in base ai raggruppamenti del volantino (mini hamburger, rustici di sfoglia, mini burger e cornetti con crudo a € 16/kg; cornetti al salmone e mafaldine a € 18/kg; mini hot dog e pizza secca a € 12/kg): da confermare con il titolare.
