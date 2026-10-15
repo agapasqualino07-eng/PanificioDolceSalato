@@ -1,10 +1,16 @@
 {
-  "eyebrow": "Le nostre specialità",
-  "intro": "Le specialità che trovi al banco in questo periodo. Cambiano quando arrivano le novità: scrivici su WhatsApp per sapere cosa c'è oggi.",
+  "periodo": "ottobre 2026",
+  "intro": "Le specialità di stagione cambiano con i mesi: scrivici su WhatsApp per sapere cosa c'è oggi al banco.",
+  "mese": {
+    "foto": "assets/img/specialita/rame-di-napoli.webp",
+    "nome": "Rame di Napoli",
+    "desc": "Il dolce di ottobre. Nella foto la versione al pistacchio.",
+    "prezzo": "",
+    "novita": true
+  },
   "items": [
     { "foto": "assets/img/foto/pala-pistacchio.webp", "nome": "Pizza in pala con mortadella e pistacchio", "desc": "Mortadella e pistacchio su una pizza in pala.", "prezzo": "Pizza in pala da € 8,00", "novita": false },
     { "foto": "assets/img/foto/arancini.webp", "nome": "Arancini con crudo e crema di pistacchio", "desc": "Prosciutto crudo e crema di pistacchio sopra l'arancino.", "prezzo": "", "novita": false },
-    { "foto": "assets/img/foto/pinsa-mora.webp", "nome": "Pinsa con carpaccio e more", "desc": "Carpaccio, formaggio fresco, more e granella di pistacchio.", "prezzo": "", "novita": false },
-    { "foto": "assets/img/foto/pistacchio-sfoglie.webp", "nome": "Bomboloni al pistacchio", "desc": "Con crema e granella di pistacchio.", "prezzo": "", "novita": false }
+    { "foto": "assets/img/foto/pinsa-mora.webp", "nome": "Pinsa con carpaccio e more", "desc": "Carpaccio, formaggio fresco, more e granella di pistacchio.", "prezzo": "", "novita": false }
   ]
 }

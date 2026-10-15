@@ -165,40 +165,54 @@
   var pizzaMode = function () { var m = $('.menu-pizze'); return m ? m.getAttribute('data-mode') : 'r'; };
   function qtyFmt(q, unit) { return unit === 'kg' ? (q + '').replace('.', ',') + ' kg' : q + ''; }
   function describe(el) {
-    var id = el.dataset.id, name = el.dataset.name, price, unit = el.dataset.unit || 'pz', from = el.dataset.from === '1';
+    var id = el.dataset.id, name = el.dataset.name, price, unit = el.dataset.unit || 'pz', from = el.dataset.from === '1', tbd = el.dataset.tbd === '1';
     if (el.dataset.r) { var t = pizzaMode() === 't'; id += ':' + (t ? 't' : 'r'); name += t ? ' (teglia)' : ' (rotonda)'; price = parseFloat(el.dataset[t ? 't' : 'r']); }
     else price = parseFloat(el.dataset.price);
-    return { id: id, name: name, price: price, unit: unit, from: from, step: unit === 'kg' ? 0.5 : 1 };
+    return { id: id, name: name, price: tbd ? 0 : price, unit: unit, from: from, tbd: tbd, step: unit === 'kg' ? 0.5 : 1 };
   }
   function setQty(d, q) {
-    q = Math.max(0, Math.round(q * 2) / 2);
+    q = Math.max(0, d.unit === 'kg' ? Math.round(q * 10) / 10 : Math.round(q));
     var before = cart[d.id] ? cart[d.id].qty : 0;
-    if (q <= 0) delete cart[d.id]; else cart[d.id] = { name: d.name, price: d.price, unit: d.unit, from: d.from, step: d.step, qty: q };
+    if (q <= 0) delete cart[d.id]; else cart[d.id] = { name: d.name, price: d.price, unit: d.unit, from: d.from, tbd: !!d.tbd, step: d.step, qty: q };
     if (q > before) { track('add_to_cart', { item: d.name }); bump(); }
     store(KEY, cart); refresh();
   }
-  function totals() { var n = 0, tot = 0; Object.keys(cart).forEach(function (k) { n += 1; tot += cart[k].qty * cart[k].price; }); return { n: n, tot: tot }; }
+  function totals() { var n = 0, tot = 0, tbd = 0; Object.keys(cart).forEach(function (k) { n += 1; if (cart[k].tbd) tbd += 1; else tot += cart[k].qty * cart[k].price; }); return { n: n, tot: tot, tbd: tbd }; }
+  function totTxt(t) { return euro(t.tot) + (t.tbd ? ' + da concordare' : ''); }
   function bump() { var c = $('#cart-count'); if (!c) return; c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }
   // dopo un re-render riporta il focus sul bottone che l'utente stava usando
   function keepFocus(fn) {
     var a = document.activeElement, row = a && a.closest && a.closest('[data-id],[data-k]');
-    var key = row && (row.dataset.k || describe(row).id), dir = a && a.dataset ? a.dataset.d : null, isAdd = a && a.classList && a.classList.contains('add');
+    var key = row && (row.dataset.k || describe(row).id), dir = a && a.dataset ? a.dataset.d : null, isAdd = a && a.classList && a.classList.contains('add'), isIn = a && a.classList && a.classList.contains('qty-in');
     fn();
     if (!key) return;
     var n = null; $$('[data-id],[data-k]').forEach(function (r) { if (!n && (r.dataset.k || describe(r).id) === key && r.offsetParent !== null) n = r; });
     if (!n) return;
     var t = (dir && n.querySelector('button[data-d="' + dir + '"]')) || n.querySelector('button.add, .step button');
     if (isAdd && !dir) t = n.querySelector('.step button[data-d="1"]') || t;
+    if (isIn) t = n.querySelector('.qty-in') || t;
     if (t) t.focus({ preventScroll: true });
   }
+  function qtyCtl(name, q, unit) {
+    var mid = unit === 'kg'
+      ? '<label class="qty"><input class="qty-in" type="text" inputmode="decimal" value="' + (q + '').replace('.', ',') + '" aria-label="Chili di ' + name + '"><span>kg</span></label>'
+      : '<output>' + q + '</output>';
+    return '<span class="step" role="group" aria-label="Quantità ' + name + '"><button type="button" data-d="-1" aria-label="Meno ' + name + '">−</button>' + mid + '<button type="button" data-d="1" aria-label="Più ' + name + '">+</button></span>';
+  }
+  function parseQty(v) { var n = parseFloat((v + '').replace(',', '.')); return isNaN(n) ? null : n; }
   function buyHTML(d, q) {
     if (!q) return '<button type="button" class="add" aria-label="Aggiungi ' + d.name + '">+ Aggiungi</button>';
-    return '<span class="step" role="group" aria-label="Quantità ' + d.name + '"><button type="button" data-d="-1" aria-label="Meno ' + d.name + '">−</button><output>' + qtyFmt(q, d.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + d.name + '">+</button></span>';
+    return qtyCtl(d.name, q, d.unit);
   }
   var rows = $$('[data-id]');
   rows.forEach(function (el) {
     el.classList.add('has-step'); if (el.tagName === 'LI' && !el.classList.contains('item')) el.classList.add('line');
     var box = document.createElement('div'); box.className = 'buy'; el.appendChild(box);
+    box.addEventListener('change', function (ev) {
+      var i = ev.target.closest('.qty-in'); if (!i) return;
+      var q = parseQty(i.value); if (q === null) { refresh(); return; }
+      setQty(describe(el), q);
+    });
     box.addEventListener('click', function (ev) {
       var b = ev.target.closest('button'); if (!b) return;
       var d = describe(el), cur = cart[d.id] ? cart[d.id].qty : 0;
@@ -212,9 +226,9 @@
       var t = totals(), bar = $('#cartbar');
       if (bar) {
         bar.hidden = t.n === 0;
-        $('#cart-count').textContent = t.n; $('#cart-total').textContent = 'Stima ' + euro(t.tot);
-        $('#cart-open').setAttribute('aria-label', 'Il tuo ordine: ' + t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ', stima ' + euro(t.tot) + '. Rivedi e invia');
-        var live = $('#cart-live'); if (live) live.textContent = t.n ? t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ' nell\'ordine, stima ' + euro(t.tot) : 'Ordine vuoto';
+        $('#cart-count').textContent = t.n; $('#cart-total').textContent = 'Stima ' + totTxt(t);
+        $('#cart-open').setAttribute('aria-label', 'Il tuo ordine: ' + t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ', stima ' + totTxt(t) + '. Rivedi e invia');
+        var live = $('#cart-live'); if (live) live.textContent = t.n ? t.n + (t.n === 1 ? ' prodotto' : ' prodotti') + ' nell\'ordine, stima ' + totTxt(t) : 'Ordine vuoto';
       }
       document.body.classList.toggle('has-cart', t.n > 0);
       if (dlg && dlg.open) renderDialog();
@@ -240,9 +254,10 @@
     if (!keys.length) { dlg.close(); return; }
     ul.innerHTML = keys.map(function (k) {
       var c = cart[k], from = c.from ? 'da ' : '', note = drinkNote(k);
-      return '<li data-k="' + k + '"><span class="nm">' + c.name + (note ? '<small>' + note + '</small>' : '') + '</span><span class="pr">' + from + euro(c.qty * c.price) + '</span><span class="step" role="group" aria-label="Quantità ' + c.name + '"><button type="button" data-d="-1" aria-label="Meno ' + c.name + '">−</button><output>' + qtyFmt(c.qty, c.unit) + '</output><button type="button" data-d="1" aria-label="Più ' + c.name + '">+</button></span></li>';
+      return '<li data-k="' + k + '"><span class="nm">' + c.name + (note ? '<small>' + note + '</small>' : '') + '</span><span class="pr">' + (c.tbd ? 'da concordare' : from + euro(c.qty * c.price)) + '</span>' + qtyCtl(c.name, c.qty, c.unit) + '</li>';
     }).join('');
-    $('#od-total').textContent = euro(totals().tot);
+    $('#od-total').textContent = totTxt(totals());
+    var iw = $('#impasto-wrap'); if (iw) iw.hidden = !keys.some(function (k) { return /^pz-/.test(k); });
     var sg = suggestions(), box = $('#od-sugg');
     box.hidden = !sg.length;
     box.innerHTML = sg.length ? '<p>Aggiungi anche</p>' + sg.map(function (s) { var c = CAT[s]; return '<button type="button" class="sugg" data-s="' + s + '">+ ' + c.label + ' · ' + euro(c.qty * c.price) + '</button>'; }).join('') : '';
@@ -264,7 +279,7 @@
     Object.keys(last).forEach(function (k) {
       var base = k.split(':')[0], el = $('[data-id="' + base + '"]'); if (!el) return;
       var t = /:t$/.test(k), price = el.dataset.r ? parseFloat(el.dataset[t ? 't' : 'r']) : parseFloat(el.dataset.price);
-      cart[k] = { name: last[k].name, price: price, unit: last[k].unit, from: el.dataset.from === '1', step: last[k].step, qty: last[k].qty }; added++;
+      cart[k] = { name: last[k].name, price: el.dataset.tbd === '1' ? 0 : price, unit: last[k].unit, from: el.dataset.from === '1', tbd: el.dataset.tbd === '1', step: last[k].step, qty: last[k].qty }; added++;
     });
     if (added) { track('reorder', { items: added }); store(KEY, cart); refresh(); openDialog(); }
   }
@@ -280,8 +295,15 @@
     $('#od-lines').addEventListener('click', function (ev) {
       var b = ev.target.closest('button'); if (!b) return;
       var k = b.closest('li').dataset.k, c = cart[k]; if (!c) return;
-      var q = c.qty + (+b.dataset.d) * c.step;
+      var q = Math.round((c.qty + (+b.dataset.d) * c.step) * 10) / 10;
       if (q <= 0) delete cart[k]; else c.qty = q;
+      store(KEY, cart); refresh();
+    });
+    $('#od-lines').addEventListener('change', function (ev) {
+      var i = ev.target.closest('.qty-in'); if (!i) return;
+      var k = i.closest('li').dataset.k, c = cart[k], q = parseQty(i.value); if (!c) return;
+      if (q === null) { refresh(); return; }
+      q = Math.round(q * 10) / 10; if (q <= 0) delete cart[k]; else c.qty = q;
       store(KEY, cart); refresh();
     });
     $('#od-sugg').addEventListener('click', function (ev) {
@@ -293,8 +315,9 @@
     $('#order-form').addEventListener('submit', function (ev) {
       ev.preventDefault();
       var d = new FormData(ev.target), keys = Object.keys(cart);
-      var lines = keys.map(function (k) { var c = cart[k]; return '• ' + qtyFmt(c.qty, c.unit) + (c.unit === 'kg' ? ' di ' : ' × ') + c.name + ' (' + (c.from ? 'da ' : '') + euro(c.qty * c.price) + ')'; });
-      var msg = 'Ciao Dolce&Salato! Sono ' + d.get('nome') + ', vorrei ordinare:\n' + lines.join('\n') + '\nTotale stimato: ' + euro(totals().tot) +
+      var lines = keys.map(function (k) { var c = cart[k]; return '• ' + qtyFmt(c.qty, c.unit) + (c.unit === 'kg' ? ' di ' : ' × ') + c.name + ' (' + (c.tbd ? 'prezzo da concordare' : (c.from ? 'da ' : '') + euro(c.qty * c.price)) + ')'; });
+      var msg = 'Ciao Dolce&Salato! Sono ' + d.get('nome') + ', vorrei ordinare:\n' + lines.join('\n') + '\nTotale stimato: ' + totTxt(totals()) +
+        (d.get('impasto') ? '\nImpasto speciale per le pizze: ' + d.get('impasto') + ' (da prenotare 24 ore prima)' : '') +
         '\nRitiro: ' + (d.get('quando') || 'da concordare') + (d.get('note') ? '\nNote: ' + d.get('note') : '') + '\nGrazie!';
       store(PROF, { nome: d.get('nome') }); store(LAST, cart); track('wa_submit', { items: keys.length, total: Math.round(totals().tot * 100) / 100 });
       var url = wa(msg), a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();

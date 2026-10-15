@@ -474,3 +474,19 @@ body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bott
 .spec__body .btn{margin-top:auto;padding-top:.7em;padding-bottom:.7em}
 .spec__badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--gold);color:var(--black);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.35em .8em;border-radius:999px}
 @media (min-width:980px){.spec{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;width:min(1120px,100% - 40px);margin-inline:auto;padding:0}.spec__item{max-width:none}}
+/* quantità al kg (campo numerico) */
+.qty{display:inline-flex;align-items:center;min-width:5.6em;justify-content:center;font-weight:700}
+.qty-in{width:3.3em;min-height:44px;text-align:center;background:transparent;border:0;color:var(--black);font:inherit;font-weight:700;font-variant-numeric:tabular-nums;padding:0}
+.qty-in:focus-visible{outline:3px solid var(--cream);outline-offset:-6px;border-radius:12px}
+.qty span{margin-left:.1em}
+.subh{font-family:var(--font-display);font-size:1.3rem;color:var(--gold);margin:26px 0 8px}
+#order-form select{width:100%;padding:.85em 1em;border-radius:12px;background:var(--black);color:var(--cream);border:1px solid rgba(243,230,207,.55);font:inherit;min-height:52px}
+#order-form label[hidden]{display:none}
+/* specialità del mese */
+.mese{display:grid;gap:0;border-radius:var(--radius);overflow:hidden;background:var(--brown-800);border:1px solid rgba(210,154,42,.45)}
+.mese img{width:100%;aspect-ratio:386/306;object-fit:cover}
+.mese__txt{padding:20px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.mese__txt h3{font-size:1.8rem}
+.mese__txt p{color:var(--cream-dim)}
+.spec__badge.static{position:static}
+@media (min-width:720px){.mese{grid-template-columns:1.1fr 1fr}.mese img{height:100%;aspect-ratio:auto;min-height:320px}.mese__txt{padding:34px;justify-content:center}}
