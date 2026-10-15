@@ -1,16 +1,14 @@
 {
   "periodo": "ottobre 2026",
-  "intro": "Le specialità di stagione cambiano con i mesi: scrivici su WhatsApp per sapere cosa c'è oggi al banco.",
+  "intro": "Le specialità di stagione cambiano con i mesi. Per ordinare o sapere cosa c'è oggi al banco, chiama il 351 5571151.",
   "mese": {
-    "foto": "assets/img/specialita/rame-di-napoli.webp",
+    "foto": ["assets/img/specialita/rame-1.webp", "assets/img/specialita/rame-2.webp", "assets/img/specialita/rame-3.webp", "assets/img/specialita/rame-4.webp", "assets/img/specialita/rame-5.webp"],
     "nome": "Rame di Napoli",
-    "desc": "Il dolce di ottobre. Nella foto la versione al pistacchio.",
-    "prezzo": "",
-    "novita": true
+    "desc": "I dolci di ottobre, glassati al pistacchio, cioccolato, Biscoff e nocciola. Scegli i gusti al banco."
   },
   "items": [
-    { "foto": "assets/img/foto/pala-pistacchio.webp", "nome": "Pizza in pala con mortadella e pistacchio", "desc": "Mortadella e pistacchio su una pizza in pala.", "prezzo": "Pizza in pala da € 8,00", "novita": false },
-    { "foto": "assets/img/foto/arancini.webp", "nome": "Arancini con crudo e crema di pistacchio", "desc": "Prosciutto crudo e crema di pistacchio sopra l'arancino.", "prezzo": "", "novita": false },
-    { "foto": "assets/img/foto/pinsa-mora.webp", "nome": "Pinsa con carpaccio e more", "desc": "Carpaccio, formaggio fresco, more e granella di pistacchio.", "prezzo": "", "novita": false }
+    { "foto": "assets/img/foto/pala-pistacchio.webp", "nome": "Pizza in pala con mortadella e pistacchio", "desc": "Mortadella e pistacchio su una pizza in pala." },
+    { "foto": "assets/img/foto/arancini.webp", "nome": "Arancini con crudo e crema di pistacchio", "desc": "Prosciutto crudo e crema di pistacchio sopra l'arancino." },
+    { "foto": "assets/img/foto/pinsa-mora.webp", "nome": "Pinsa con carpaccio e more", "desc": "Carpaccio, formaggio fresco, more e granella di pistacchio." }
   ]
 }

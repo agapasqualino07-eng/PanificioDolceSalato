@@ -490,3 +490,9 @@ body.has-cart{padding-bottom:calc(var(--bar-h) + 84px + env(safe-area-inset-bott
 .mese__txt p{color:var(--cream-dim)}
 .spec__badge.static{position:static}
 @media (min-width:720px){.mese{grid-template-columns:1.1fr 1fr}.mese img{height:100%;aspect-ratio:auto;min-height:320px}.mese__txt{padding:34px;justify-content:center}}
+/* specialità del mese: foto principale + miniature */
+.mese__ph{display:flex;flex-direction:column;gap:6px;background:var(--black)}
+.mese__ph>img{width:100%;aspect-ratio:640/732;object-fit:cover;max-height:520px}
+.mese__thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:0 6px 6px}
+.mese__thumbs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
+@media (min-width:720px){.mese{grid-template-columns:1fr 1fr}.mese__ph>img{max-height:none;height:100%;min-height:360px;aspect-ratio:auto}.mese__ph{height:100%}}

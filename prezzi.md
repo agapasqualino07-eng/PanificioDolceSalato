@@ -1,6 +1,6 @@
 # Listino Dolce&Salato – Panificio Pasticceria, Mascalucia
 
-Aggiornato il 16 ottobre 2026.
+Aggiornato il 17 ottobre 2026.
 
 Via Tremestieri 54, Mascalucia (CT) · Tel./WhatsApp 351 5571151 · Lun–sab 6:30–21:30, dom 6:30–13:30
 
@@ -31,12 +31,12 @@ Prezzi in euro. Possono variare: fa fede il listino in negozio.
 
 Supplementi: € 0,50 per pizza rotonda, € 1,50 per pizza a teglia.
 Con ogni pizza rotonda una lattina da 15 cl; con ogni pizza a teglia una bibita Tomarchio in bottiglia; con ogni mezza teglia una lattina da 33 cl.
-Impasti con farine speciali (integrale, kamut, 9 cereali, grano saraceno, timilia, segale) solo su prenotazione 24 ore prima.
+Impasti con farine speciali (integrale, kamut, 9 cereali, grano saraceno, timilia, segale, azzimo) solo su prenotazione 24 ore prima.
 
 ## Schiacciate (al kg)
 
-- Schiacciate: vendute al kg, prezzo su richiesta
-- Schiacciate al pistacchio: € 2,00 al kg in più rispetto alle altre schiacciate
+- Schiacciate: € 14,00 al kg
+- Schiacciate al pistacchio: € 16,00 al kg
 
 ## Calzoni
 
@@ -87,4 +87,4 @@ Nel periodo estivo: granite e gelati di nostra produzione.
 
 ## Specialità di ottobre 2026
 
-- Rame di Napoli: Il dolce di ottobre. Nella foto la versione al pistacchio.
+- Rame di Napoli: dolci di ottobre glassati al pistacchio, cioccolato, Biscoff e nocciola. Per ordinare, chiamare il 351 5571151.
