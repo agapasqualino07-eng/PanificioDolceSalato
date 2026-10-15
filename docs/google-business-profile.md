@@ -12,7 +12,7 @@ Non ho potuto aprire la scheda: Google Maps e i directory non sono raggiungibili
 | Telefono | 351 5571151 | volantino |
 | Valutazione di terzi | 4,2 su 68 recensioni (Infobel, data non nota); 4,3 su Too Good To Go | **non** sono dati della scheda Google |
 | Facebook | facebook.com/panificiodolceesalatomascalucia (descritta come panificio, pasticceria e gastronomia, 3 recensioni) | |
-| Instagram | @panificio_dolceesalato54 (QR del volantino) e @panificiodolcesalato_ (profilo con i post) | **scegli quello ufficiale** |
+| Instagram | @panificiodolcesalato_ (profilo ufficiale, confermato dal titolare; il QR del volantino punta invece a un altro profilo) | usato sul sito |
 
 Tutti i canali devono mostrare lo stesso nome, indirizzo e telefono (NAP). Oggi la differenza da risolvere è **54 o 54/56**.
 
