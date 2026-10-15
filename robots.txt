@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /_riferimento-idda/
-Disallow: /.claude/
 Sitemap: https://agapasqualino07-eng.github.io/PanificioDolceSalato/sitemap.xml

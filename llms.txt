@@ -4,6 +4,10 @@
 
 Aperti tutti i giorni con orario continuato: lunedì–sabato 6:30–21:30, domenica (mezza giornata) 6:30–13:30.
 
+Prezzi in breve: pizza rotonda da € 4,00, teglia da € 9,00; schiacciate € 14/kg (€ 16/kg al pistacchio); pane da € 4/kg; rustici mignon da € 12/kg; pasticceria mignon € 14/kg; torte da € 15/kg; semifreddi da € 18/kg. Prezzi completi in prezzi.md.
+
+Specialità di ottobre 2026: Rame di Napoli (per ordinare, telefonare).
+
 ## Pagine
 - [Home: chi siamo, galleria, orari, dove siamo](https://agapasqualino07-eng.github.io/PanificioDolceSalato/)
 - [Pizza a Mascalucia: tutte le pizze, i calzoni e i prezzi](https://agapasqualino07-eng.github.io/PanificioDolceSalato/pizza-mascalucia/)
@@ -18,4 +22,4 @@ Aperti tutti i giorni con orario continuato: lunedì–sabato 6:30–21:30, dome
 ## Optional
 - [Volantino con il listino (PDF, immagini)](https://agapasqualino07-eng.github.io/PanificioDolceSalato/assets/docs/volantino-dolce-e-salato.pdf)
 
-Aggiornato il 14 ottobre 2026.
+Aggiornato il 15 ottobre 2026.

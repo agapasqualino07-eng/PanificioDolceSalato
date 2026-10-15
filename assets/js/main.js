@@ -3,7 +3,7 @@
   'use strict';
 
   // ===== DATI DA CONFERMARE CON IL TITOLARE =====
-  var WA_NUMBER = '393515571151'; // 351 5571151 (numero del volantino) — verificare che sia attivo su WhatsApp
+  var WA_NUMBER = '393515571151'; // 351 5571151 (numero del volantino)
   // Orari (0 = domenica … 6 = sabato) per il badge "Aperto/Chiuso ora" e per evidenziare il giorno di oggi. Più fasce: [['07:00','13:00'],['16:00','20:00']]
   var HOURS = { 0: [['06:30', '13:30']], 1: [['06:30', '21:30']], 2: [['06:30', '21:30']], 3: [['06:30', '21:30']], 4: [['06:30', '21:30']], 5: [['06:30', '21:30']], 6: [['06:30', '21:30']] };
 
@@ -62,6 +62,7 @@
     window.addEventListener('scroll', function () {
       if (tick) return; tick = true;
       requestAnimationFrame(function () {
+        if (window.scrollY > window.innerHeight) { tick = false; return; }
         var y = Math.min(window.scrollY, window.innerHeight);
         heroImg.style.transform = 'translate3d(0,' + (y * 0.22) + 'px,0) scale(1.08)';
         tick = false;
@@ -126,22 +127,6 @@
   }
   if (ppl) { ppl.addEventListener('input', calc); kind.addEventListener('change', calc); calc(); }
 
-  // ===== form ordine -> WhatsApp =====
-  var form = $('#order');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(form);
-      var msg = 'Ciao Dolce&Salato! Sono ' + (d.get('nome') || '') + '.\n' +
-        'Vorrei ordinare (' + d.get('tipo') + '):\n' + (d.get('cosa') || '') + '\n' +
-        'Per il giorno: ' + (d.get('quando') || 'da concordare') + (d.get('ora') ? ' alle ' + d.get('ora') : '') +
-        (d.get('note') ? '\nNote: ' + d.get('note') : '') + '\nGrazie!';
-      window.open(wa(msg), '_blank', 'noopener');
-    });
-    var dt = $('#quando'); if (dt) { dt.min = new Date().toISOString().slice(0, 10); }
-  }
-  $$('.js-wa').forEach(function (a) { if (!a.dataset.msg) return; a.href = wa(a.dataset.msg); });
-
   // ===== download volantino: evento analytics-friendly =====
   $$('[data-download]').forEach(function (a) {
     a.addEventListener('click', function () {
@@ -157,10 +142,12 @@
   var cart = load(KEY, {});
   // eventi interni (ultimi 200 in localStorage) + gtag se presente; con ?debug=1 stampa in console
   function track(name, props) {
-    var ev = load('ds-events', []); ev.push({ t: Date.now(), n: name, p: props || {} }); store('ds-events', ev.slice(-200));
+    var rec = function () { var ev = load('ds-events', []); ev.push({ t: Date.now(), n: name, p: props || {} }); store('ds-events', ev.slice(-200)); };
+    if (window.requestIdleCallback) window.requestIdleCallback(rec); else setTimeout(rec, 0);
     if (window.gtag) window.gtag('event', name, props || {});
     if (/[?&]debug=1/.test(location.search) && window.console) console.log('[track]', name, props || {});
   }
+  var esc = function (s) { return String(s).replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; }); };
   var euro = function (n) { return '€ ' + n.toFixed(2).replace('.', ','); };
   var pizzaMode = function () { var m = $('.menu-pizze'); return m ? m.getAttribute('data-mode') : 'r'; };
   function qtyFmt(q, unit) { return unit === 'kg' ? (q + '').replace('.', ',') + ' kg' : q + ''; }
@@ -175,7 +162,7 @@
     var before = cart[d.id] ? cart[d.id].qty : 0;
     if (q <= 0) delete cart[d.id]; else cart[d.id] = { name: d.name, price: d.price, unit: d.unit, from: d.from, tbd: !!d.tbd, step: d.step, qty: q };
     if (q > before) { track('add_to_cart', { item: d.name }); bump(); }
-    store(KEY, cart); refresh();
+    store(KEY, cart); refresh(d.id);
   }
   function totals() { var n = 0, tot = 0, tbd = 0; Object.keys(cart).forEach(function (k) { n += 1; if (cart[k].tbd) tbd += 1; else tot += cart[k].qty * cart[k].price; }); return { n: n, tot: tot, tbd: tbd }; }
   function totTxt(t) { return euro(t.tot) + (t.tbd ? ' + da concordare' : ''); }
@@ -220,9 +207,9 @@
     });
   });
   var dlg = $('#order-dialog');
-  function refresh() {
+  function refresh(only) {
     keepFocus(function () {
-      rows.forEach(function (el) { var d = describe(el), q = cart[d.id] ? cart[d.id].qty : 0, box = el.querySelector('.buy'); box.innerHTML = buyHTML(d, q); box.classList.toggle('on', q > 0); });
+      rows.forEach(function (el) { var d = describe(el); if (only && d.id !== only) return; var q = cart[d.id] ? cart[d.id].qty : 0, box = el.querySelector('.buy'); box.innerHTML = buyHTML(d, q); box.classList.toggle('on', q > 0); });
       var t = totals(), bar = $('#cartbar');
       if (bar) {
         bar.hidden = t.n === 0;
@@ -254,7 +241,7 @@
     if (!keys.length) { dlg.close(); return; }
     ul.innerHTML = keys.map(function (k) {
       var c = cart[k], from = c.from ? 'da ' : '', note = drinkNote(k);
-      return '<li data-k="' + k + '"><span class="nm">' + c.name + (note ? '<small>' + note + '</small>' : '') + '</span><span class="pr">' + (c.tbd ? 'da concordare' : from + euro(c.qty * c.price)) + '</span>' + qtyCtl(c.name, c.qty, c.unit) + '</li>';
+      return '<li data-k="' + esc(k) + '"><span class="nm">' + esc(c.name) + (note ? '<small>' + note + '</small>' : '') + '</span><span class="pr">' + (c.tbd ? 'da concordare' : from + euro(c.qty * c.price)) + '</span>' + qtyCtl(esc(c.name), c.qty, c.unit) + '</li>';
     }).join('');
     $('#od-total').textContent = totTxt(totals());
     var iw = $('#impasto-wrap'); if (iw) iw.hidden = !keys.some(function (k) { return /^pz-/.test(k); });
@@ -265,7 +252,7 @@
   function openDialog() {
     if (!dlg || !Object.keys(cart).length) return;
     var p = load(PROF, {}); var n = $('#order-form input[name=nome]'); if (n && !n.value && p.nome) n.value = p.nome;
-    renderDialog(); if (!dlg.open) dlg.showModal(); track('cart_open', { items: totals().n });
+    renderDialog(); if (!dlg.open) { dlg.showModal(); var h = $('#od-title'); if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); } } track('cart_open', { items: totals().n });
   }
   function renderReorder() {
     var box = $('#reorder'); if (!box) return;

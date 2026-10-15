@@ -1,3 +1,11 @@
+@font-face{font-family:'Outfit';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/outfit-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/outfit-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/outfit-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/playfair-display-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/playfair-display-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:500;font-display:swap;src:url(../fonts/playfair-display-latin-500-italic.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:600;font-display:swap;src:url(../fonts/playfair-display-latin-600-italic.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:700;font-display:swap;src:url(../fonts/playfair-display-latin-700-italic.woff2) format('woff2')}
 @font-face{font-family:'Playfair Fallback';src:local('Georgia');size-adjust:104%;ascent-override:92%;descent-override:24%;line-gap-override:0%}
 @font-face{font-family:'Outfit Fallback';src:local('Arial');size-adjust:101%;ascent-override:100%;descent-override:26%}
 /* Dolce&Salato — Panificio Pasticceria · Mascalucia
@@ -595,7 +603,23 @@ h2{font-size:clamp(1.8rem,6vw,2.6rem)}
   .footer__grid{grid-template-columns:1fr 1fr;gap:18px 14px;margin-bottom:20px}
   .footer__grid>div:first-child{grid-column:1/-1}
   .footer li{padding:0}
-  .footer a{min-height:40px}
+  .footer a{min-height:44px}
   .faq summary{font-size:1.05rem;padding:12px 0}
   .tabs{padding-bottom:10px}
 }
+
+/* ===== v6: correzioni audit ===== */
+#open-badge[hidden]{display:inline-flex!important;visibility:hidden}
+.intent::after{background:linear-gradient(180deg,rgba(11,7,5,0) 12%,rgba(11,7,5,.6) 42%,rgba(11,7,5,.95))}
+.intent__txt b,.intent__txt span{text-shadow:0 1px 8px rgba(0,0,0,.75)}
+.bar a{font-size:.75rem}
+.brand small{font-size:.75rem}
+.footer a{min-height:44px}
+.meta a,.crumbs a{display:inline-block;padding:12px 4px;margin:-12px -4px}
+@media (max-height:700px) and (max-width:979px){.hero{padding-top:76px}.hero-logo{width:min(62%,210px);margin-inline:auto}.hero h1{font-size:clamp(1.9rem,9vw,2.4rem);margin-bottom:16px}.hero__cta{gap:10px}.hero__cta .btn{min-height:48px}.hero__inner{padding-bottom:16px}.chip{font-size:.8rem}.page-hero{padding-bottom:28px}.crumbs{padding-top:84px}}
+@media (prefers-reduced-motion:reduce){.mosaic{overflow:hidden}}
+.page-photo{content-visibility:auto}
+.section:not(#top){content-visibility:auto;contain-intrinsic-size:auto 800px}
+.privacy h2{font-size:1.5rem;margin:1.4em 0 .4em}
+.privacy p,.privacy li{color:var(--cream-dim);max-width:70ch;margin-bottom:.8em}
+.privacy ul{list-style:disc;padding-left:1.3em}

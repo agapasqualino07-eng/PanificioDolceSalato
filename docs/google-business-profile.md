@@ -35,13 +35,13 @@ Tutti i canali devono mostrare lo stesso nome, indirizzo e telefono (NAP). Oggi 
 - Calzoni da € 6,50
 - Tavola calda (pezzi medi) da € 0,80
 - Rusticheria mignon da € 12,00 al kg
-- Pasticceria mignon € 14,00 al kg · Torte da € 15,00 al kg · Semifreddi da € 17,00 al kg
+- Pasticceria mignon € 14,00 al kg · Torte da € 15,00 al kg · Semifreddi da € 18,00 al kg
 - Servizio: rinfreschi ed eventi su prenotazione
 
 ## 5. Domande e risposte da pubblicare tu (sezione Domande e risposte)
 - **Fate pizza anche a teglia?** Sì, la teglia parte da € 9,00 e include una bibita Tomarchio in bottiglia.
 - **Si può prenotare per una festa?** Sì: chiama o scrivi su WhatsApp al 351 5571151 con data, persone e cosa ti serve.
-- **Avete impasti con farine speciali?** Integrale, kamut, 5 cereali e grano saraceno, da prenotare 24 ore prima.
+- **Avete impasti con farine speciali?** Integrale, kamut, 9 cereali, grano saraceno, timilia, segale e azzimo, da prenotare 24 ore prima.
 - **Siete aperti la domenica?** Sì, dalle 6:30 alle 13:30.
 
 ## 6. Post settimanali (Google permette "Novità")

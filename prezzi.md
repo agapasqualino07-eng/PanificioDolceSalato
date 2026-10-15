@@ -1,6 +1,6 @@
 # Listino Dolce&Salato – Panificio Pasticceria, Mascalucia
 
-Aggiornato il 17 ottobre 2026.
+Aggiornato il 15 ottobre 2026.
 
 Via Tremestieri 54, Mascalucia (CT) · Tel./WhatsApp 351 5571151 · Lun–sab 6:30–21:30, dom 6:30–13:30
 
@@ -59,7 +59,7 @@ Impasti con farine speciali (integrale, kamut, 9 cereali, grano saraceno, timili
 
 ## Rusticheria mignon (al kg)
 
-- Focacce a mini porzioni, vari tipi: € da 12,00 al kg
+- Focacce a mini porzioni, vari tipi: da € 12,00 al kg
 - Mini hot dog (wurstel, patatine, tomato e maionese): € 12,00 al kg
 - Pizza secca, vari tipi: € 12,00 al kg
 - Rustici classici, vari tipi: € 12,00 al kg
