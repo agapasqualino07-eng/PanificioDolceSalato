@@ -28,3 +28,9 @@ Eseguito con 7 agenti (SEO locale, copy, UX/accessibilità, coerenza dati, schem
 
 ## Le nostre specialità (stagionali)
 `content/specialita.json`: `periodo` (es. "ottobre 2026"), `mese` (la specialità del mese: foto, nome, descrizione, prezzo facoltativo) e `items` (le altre, con `novita` per il badge). Ogni mese: foto della specialità in `assets/img/specialita/` (WebP), aggiorno il JSON e rigenero le pagine.
+
+## Audit del 15/10/2026 (velocità, SEO, sicurezza, UX)
+- Font ospitati sul sito (`assets/fonts`, licenza OFL): niente più Google Fonts.
+- Header di sicurezza e cache in `vercel.json` (CSP, HSTS, X-Frame-Options). Se si aggiunge GA4 o altri script esterni va aggiornata la CSP.
+- Pagina `/privacy/` da completare con ragione sociale e P.IVA.
+- Il volantino PDF contiene ancora prezzi del 2024 (semifreddi € 17, "5 cereali"): va rifatto con i prezzi nuovi.
