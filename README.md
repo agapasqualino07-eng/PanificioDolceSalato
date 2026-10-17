@@ -8,7 +8,7 @@ Sito statico (HTML/CSS/JS, nessuna build), mobile-first. Pubblicabile così com'
 - `_riferimento-idda/` – file preesistenti del progetto "Idda" (altra attività), non usati dal sito
 
 ## Da completare prima del lancio
-1. Dominio definitivo: sostituire `https://agapasqualino07-eng.github.io/PanificioDolceSalato` in `index.html`, `robots.txt`, `sitemap.xml`.
+1. Dominio definitivo: sostituire `https://panificiodolcesalato.it` in `index.html`, `robots.txt`, `sitemap.xml`.
 2. Orari: già inseriti (lun–sab 6:30–21:30, dom 6:30–13:30); aggiornarli in `index.html` e `HOURS` in `main.js` se cambiano.
 3. Verificare che 351 5571151 sia attivo su WhatsApp; inserire la P.IVA nel footer.
 4. Sostituire le foto con scatti reali del locale.
@@ -18,7 +18,7 @@ Sito statico (HTML/CSS/JS, nessuna build), mobile-first. Pubblicabile così com'
 Sito statico: nessuna build. Impostazioni progetto: Framework "Other", Build Command vuoto, Output Directory `.` (root). `vercel.json` gestisce URL puliti, cache e header; `.vercelignore` esclude file di lavoro.
 - I push sul branch `claude/inspiring-dirac-khdl50` creano una **Preview Deployment** (URL nella dashboard Vercel o nei check del commit).
 - Per la produzione (branch `main`) serve il merge.
-- Quando il dominio è deciso: aggiornare l'indirizzo base (canonical, og:url, sitemap, robots, llms.txt) con un cerca-e-sostituisci su `https://agapasqualino07-eng.github.io/PanificioDolceSalato`.
+- Quando il dominio è deciso: aggiornare l'indirizzo base (canonical, og:url, sitemap, robots, llms.txt) con un cerca-e-sostituisci su `https://panificiodolcesalato.it`.
 
 ## Pagine
 - `/` home · `/pizza-mascalucia/` · `/catering-rustici-mascalucia/` · `/torte-su-ordinazione-mascalucia/` · `/colazione-mascalucia/` · `/prezzi.md` e `/llms.txt` (per AI) · `docs/google-business-profile.md` (guida scheda Google)

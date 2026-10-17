@@ -639,3 +639,7 @@ h2{font-size:clamp(1.8rem,6vw,2.6rem)}
 .ppl-step:active{transform:scale(.94)}
 .calc input[type=text]{width:100%;padding:.9em 1em;border-radius:12px;background:var(--black);color:var(--cream);border:1px solid rgba(243,230,207,.55);font:inherit;min-height:52px}
 .calc input:focus-visible,.calc select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+/* v7: elenchi pagine occasione */
+.checks{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.checks li{position:relative;padding-left:22px;line-height:1.5}
+.checks li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold)}

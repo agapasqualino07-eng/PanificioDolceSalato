@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://agapasqualino07-eng.github.io/PanificioDolceSalato/sitemap.xml
+Sitemap: https://panificiodolcesalato.it/sitemap.xml
