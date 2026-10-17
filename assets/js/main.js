@@ -103,29 +103,22 @@
     });
   });
 
-  // ===== calcolatore eventi =====
-  var ppl = $('#ppl'), kind = $('#kind');
-  var FACTORS = { // kg a persona: [salato, dolce]
-    bimbi:    [0.12, 0.12],
-    aperitivo:[0.15, 0.06],
-    buffet:   [0.22, 0.10],
-    laurea:   [0.18, 0.14]
-  };
-  var PRICE = { salato: [12, 18], dolce: 14 }; // €/kg dal volantino (rustici 12–18, mignon 14)
-  var last = '';
+  // ===== richiesta catering: il cliente dice solo per quante persone =====
+  var ppl = $('#ppl'), kind = $('#kind'), when = $('#when');
   function calc() {
-    var n = +ppl.value, f = FACTORS[kind.value];
-    var s = Math.max(1, Math.round(n * f[0] * 2) / 2), d = Math.max(1, Math.round(n * f[1] * 2) / 2);
-    var lo = s * PRICE.salato[0] + d * PRICE.dolce, hi = s * PRICE.salato[1] + d * PRICE.dolce;
-    $('#ppl-out').textContent = n + ' persone';
-    $('#kg-s').textContent = s.toString().replace('.', ',') + ' kg';
-    $('#kg-d').textContent = d.toString().replace('.', ',') + ' kg';
-    $('#est').textContent = '€ ' + Math.round(lo) + ' – ' + Math.round(hi);
-    last = 'Ciao Dolce&Salato! Vorrei un preventivo per un evento (' + kind.options[kind.selectedIndex].text + ') per circa ' + n +
-      ' persone. Stima: ~' + s + ' kg di rusticheria mignon e ~' + d + ' kg di pasticceria mignon. Data: ';
-    $('#calc-wa').href = wa(last);
+    var n = parseInt(ppl.value, 10); if (isNaN(n) || n < 1) n = 0;
+    var msg = 'Ciao Dolce&Salato! Vorrei un preventivo per il catering (' + kind.options[kind.selectedIndex].text + ')' +
+      (n ? ' per ' + n + ' persone' : '') + (when && when.value ? '. Giorno: ' + when.value : '') + '.';
+    $('#calc-wa').href = wa(msg);
   }
-  if (ppl) { ppl.addEventListener('input', calc); kind.addEventListener('change', calc); calc(); }
+  if (ppl) {
+    ppl.addEventListener('input', calc); kind.addEventListener('change', calc); if (when) when.addEventListener('input', calc);
+    $$('.ppl-step').forEach(function (b) { b.addEventListener('click', function () {
+      var n = parseInt(ppl.value, 10) || 0; ppl.value = Math.max(1, Math.min(500, n + (+b.dataset.d))); calc();
+    }); });
+    $('#calc-wa').addEventListener('click', function () { track('catering_request', { persone: parseInt(ppl.value, 10) || 0 }); });
+    calc();
+  }
 
   // ===== download volantino: evento analytics-friendly =====
   $$('[data-download]').forEach(function (a) {
@@ -311,15 +304,6 @@
       var s = $('#od-status'); s.innerHTML = 'Si è aperto WhatsApp con il messaggio già scritto. Non è partito? <a href="' + url + '" target="_blank" rel="noopener">Riprova</a> oppure chiama il 351 5571151.';
     });
   }
-  // preset dal calcolatore feste
-  var calcBtn = $('#calc-cart');
-  if (calcBtn) calcBtn.addEventListener('click', function () {
-    var r = $('#kg-s').textContent, dd = $('#kg-d').textContent;
-    var s = parseFloat(r.replace(',', '.')), d = parseFloat(dd.replace(',', '.'));
-    setQty({ id: 'rk-rustici-classici-vari-tipi', name: 'Rustici classici, vari tipi', price: 12, unit: 'kg', from: true, step: 0.5 }, s);
-    setQty({ id: 'ps-pasticceria-mignon-di-nostra-produzione', name: 'Pasticceria mignon di nostra produzione', price: 14, unit: 'kg', from: false, step: 0.5 }, d);
-    track('preset_apply', { rustici: s, dolci: d }); openDialog();
-  });
   refresh();
 
   // ===== aperto / chiuso ora =====

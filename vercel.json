@@ -1,5 +1,9 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/eventi-mignon-mascalucia", "destination": "/catering-rustici-mascalucia/", "permanent": true },
+    { "source": "/eventi-mignon-mascalucia/", "destination": "/catering-rustici-mascalucia/", "permanent": true }
+  ],
   "trailingSlash": true,
   "headers": [
     { "source": "/(.*)", "headers": [

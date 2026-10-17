@@ -623,3 +623,23 @@ h2{font-size:clamp(1.8rem,6vw,2.6rem)}
 .privacy h2{font-size:1.5rem;margin:1.4em 0 .4em}
 .privacy p,.privacy li{color:var(--cream-dim);max-width:70ch;margin-bottom:.8em}
 .privacy ul{list-style:disc;padding-left:1.3em}
+/* tabella quantità catering */
+.tablewrap{overflow-x:auto;border:1px solid rgba(210,154,42,.3);border-radius:14px}
+.qty-table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:560px}
+.qty-table th,.qty-table td{padding:12px 14px;text-align:left;border-bottom:1px dashed rgba(243,230,207,.14)}
+.qty-table thead th{color:var(--gold);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;background:var(--brown-800)}
+.qty-table tbody th{font-weight:600}
+.qty-table td{color:var(--cream-dim)}
+.qty-table tr:last-child>*{border-bottom:0}
+/* richiesta catering: numero di persone */
+.ppl{display:flex;align-items:center;gap:8px}
+.ppl input{flex:1;min-width:0;text-align:center;font-size:1.6rem;font-weight:700;font-family:var(--font-display);padding:.5em;border-radius:12px;background:var(--black);color:var(--gold);border:1px solid rgba(243,230,207,.55);min-height:56px;-moz-appearance:textfield}
+.ppl input::-webkit-outer-spin-button,.ppl input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ppl-step{width:56px;height:56px;border-radius:50%;background:var(--gold);color:var(--black);font-size:1.6rem;font-weight:600;flex:none}
+.ppl-step:active{transform:scale(.94)}
+.calc input[type=text]{width:100%;padding:.9em 1em;border-radius:12px;background:var(--black);color:var(--cream);border:1px solid rgba(243,230,207,.55);font:inherit;min-height:52px}
+.calc input:focus-visible,.calc select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+/* v7: elenchi pagine occasione */
+.checks{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px}
+.checks li{position:relative;padding-left:22px;line-height:1.5}
+.checks li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border-radius:50%;background:var(--gold)}

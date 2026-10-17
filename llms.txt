@@ -9,10 +9,16 @@ Prezzi in breve: pizza rotonda da € 4,00, teglia da € 9,00; schiacciate € 
 Specialità di ottobre 2026: Rame di Napoli (per ordinare, telefonare).
 
 ## Pagine
-- [Home: chi siamo, galleria, orari, dove siamo](https://agapasqualino07-eng.github.io/PanificioDolceSalato/)
-- [Pizza a Mascalucia: tutte le pizze, i calzoni e i prezzi](https://agapasqualino07-eng.github.io/PanificioDolceSalato/pizza-mascalucia/)
-- [Rusticheria e pasticceria mignon per eventi](https://agapasqualino07-eng.github.io/PanificioDolceSalato/eventi-mignon-mascalucia/)
-- [Listino completo in testo semplice](https://agapasqualino07-eng.github.io/PanificioDolceSalato/prezzi.md)
+- [Home: chi siamo, galleria, orari, dove siamo](https://panificiodolcesalato.it/)
+- [Pizza a Mascalucia: tutte le pizze, i calzoni e i prezzi](https://panificiodolcesalato.it/pizza-mascalucia/)
+- [Catering a Mascalucia: rustici, dolci mignon e buffet](https://panificiodolcesalato.it/catering-rustici-mascalucia/)
+- [Catering per compleanni a Mascalucia](https://panificiodolcesalato.it/catering-compleanno-mascalucia/)
+- [Catering per lauree a Mascalucia](https://panificiodolcesalato.it/catering-laurea-mascalucia/)
+- [Rustici per aperitivo e buffet a Mascalucia](https://panificiodolcesalato.it/buffet-aperitivo-mascalucia/)
+- [Catering per battesimi, comunioni e feste di famiglia](https://panificiodolcesalato.it/catering-battesimo-comunione-mascalucia/)
+- [Torte su ordinazione a Mascalucia](https://panificiodolcesalato.it/torte-su-ordinazione-mascalucia/)
+- [Colazione a Mascalucia dalle 6:30](https://panificiodolcesalato.it/colazione-mascalucia/)
+- [Listino completo in testo semplice](https://panificiodolcesalato.it/prezzi.md)
 
 ## Contatti
 - Indirizzo: Via Tremestieri 54, 95030 Mascalucia (CT)
@@ -20,6 +26,6 @@ Specialità di ottobre 2026: Rame di Napoli (per ordinare, telefonare).
 - Instagram: https://www.instagram.com/panificiodolcesalato_/
 
 ## Optional
-- [Volantino con il listino (PDF, immagini)](https://agapasqualino07-eng.github.io/PanificioDolceSalato/assets/docs/volantino-dolce-e-salato.pdf)
+- [Volantino con il listino (PDF, immagini)](https://panificiodolcesalato.it/assets/docs/volantino-dolce-e-salato.pdf)
 
-Aggiornato il 15 ottobre 2026.
+Aggiornato il 17 ottobre 2026.
