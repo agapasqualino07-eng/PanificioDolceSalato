@@ -27,7 +27,7 @@ Sito statico: nessuna build. Impostazioni progetto: Framework "Other", Build Com
 Eseguito con 7 agenti (SEO locale, copy, UX/accessibilità, coerenza dati, schema/AI-SEO, piano conversione, prestazioni). Corretto anche il listino rusticheria in base ai raggruppamenti del volantino (mini hamburger, rustici di sfoglia, mini burger e cornetti con crudo a € 16/kg; cornetti al salmone e mafaldine a € 18/kg; mini hot dog e pizza secca a € 12/kg): da confermare con il titolare.
 
 ## Le nostre specialità (stagionali)
-`content/specialita.json`: `periodo` (es. "ottobre 2026"), `mese` (la specialità del mese: foto, nome, descrizione, prezzo facoltativo) e `items` (le altre, con `novita` per il badge). Ogni mese: foto della specialità in `assets/img/specialita/` (WebP), aggiorno il JSON e rigenero le pagine.
+`content/specialita.json`: `periodo` (es. "novembre 2026"), `mese` (la specialità del mese: foto, nome, descrizione, prezzo facoltativo) e `items` (le altre, con `novita` per il badge). Ogni mese: foto della specialità in `assets/img/specialita/` (WebP), aggiorno il JSON e la sezione `#specialita` di `index.html`.
 
 ## Audit del 15/10/2026 (velocità, SEO, sicurezza, UX)
 - Font ospitati sul sito (`assets/fonts`, licenza OFL): niente più Google Fonts.

@@ -85,6 +85,6 @@ Nel periodo estivo: granite e gelati di nostra produzione.
 - Pane: da € 4,00 al kg
 - Stuzzicheria: gusti e prezzo su richiesta
 
-## Specialità di ottobre 2026
+## Specialità di novembre 2026
 
-- Rame di Napoli: dolci di ottobre glassati al pistacchio, cioccolato, Biscoff e nocciola. Per ordinare, chiamare il 351 5571151.
+- Panini di novembre: panino intrecciato al sesamo con mortadella e granella di pistacchio, e hot dog con patatina fritta. Per ordinare, chiamare il 351 5571151.
